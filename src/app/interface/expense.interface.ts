@@ -1,3 +1,5 @@
+type category = 'Comida' | 'Ocio' | 'Transporte' | 'Compras';
+
 export interface IExpense {
     Id: number;
     Name: string;
@@ -9,11 +11,7 @@ export interface IExpense {
     UpdatedDate: Date;
 }
 
-enum category {
-    Alquiler = 'Alquiler',
-    Comida = 'Comida',
-    Compras = 'Compras',
-    Ocio = 'Ocio',
-    Transporte = 'Transporte',
-    Otros = 'Otros',
-}
+
+
+
+

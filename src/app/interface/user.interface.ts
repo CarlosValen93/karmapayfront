@@ -2,9 +2,9 @@ export interface IUser {
     Id: number;
     Username: string;
     Mail: string;
-    Password: number;
-    Img: string;
-    Token: number;
+    Password: string;
+    Img: string | null;
+    Token: string | null;
     CreationDate: Date;
     UpdatedDate: Date;
 }
