@@ -1,0 +1,8 @@
+<div class="card p-3 shadow-sm2"> 
+    <div>
+        <p>{{miExpense.CreationDate}}</p>
+        <p>{{miExpense.Name}}</p>
+        <p>{{miExpense.Amount}} €</p>
+      <button class="btn btn-sm btn-danger" [routerLink]="['/expense', miExpense.Id]">Ver detalle</button>
+    </div>
+</div>

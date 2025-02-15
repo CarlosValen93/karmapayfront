@@ -11,11 +11,11 @@ import { HomeComponent } from './pages/home/home.component';
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
     { path: 'home', component: HomeComponent},
-    { path: 'register', component: RegisterComponent},
-    { path: 'login', component: LoginComponent },
-    { path: 'team', component: TeamComponent },
-    { path: 'user', component: UserComponent },
-    { path: 'expense', component: ExpenseComponent },
+    { path: 'home/register', component: RegisterComponent},
+    { path: 'home/login', component: LoginComponent },
+    { path: 'team/:idTeam', component: TeamComponent },
+    { path: 'user/:idUser', component: UserComponent },
+    { path: 'expense/:idExpense', component: ExpenseComponent },
     { path: 'expense/new', component: NewExpenseComponent },
     { path: 'team/new', component: NewTeamComponent },
     { path: '*', redirectTo: '/home' } 

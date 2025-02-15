@@ -1,0 +1,13 @@
+<h3>Integrantes</h3>
+
+<app-user-search></app-user-search>
+
+@for( user of arrUsers; track user.Id) {
+  <article class="col-12 col-md-6 col-xl-4">
+    <app-user-card [miUser]="user"></app-user-card>
+  </article>
+  }@empty {
+  <h4>No hay integrantes</h4>
+  }
+
+<button class="btn btn-danger mb-2">Invitar a alguien</button>

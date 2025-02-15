@@ -1,1 +1,29 @@
-<p>user works!</p>
+<section class="container my-3">
+
+    <h3>Detalle de usuario</h3>
+
+    <div class="card p-3 shadow-sm2">
+
+        <div class="row">
+
+       <div class="col-xl-4 col-md-6 col-xs-12">
+            <figure>
+                <img [src]="user.Img" [alt]="user.Username">
+            </figure>
+       </div>
+            
+            
+        <div class="col-xl-8 col-md-6 col-xs-12">
+            <h3 class="pb-3">{{user.Username}}</h3>
+            <p><strong>Mail:</strong> {{user.Mail}}</p>
+            <p><strong>Password:</strong> {{user.Password}}</p>
+            <button class="btn btn-danger m-2">Cambiar Password</button>
+            <button class="btn btn-danger">Log Out</button>
+        </div>
+
+    </div>
+            
+
+    </div>
+
+</section>

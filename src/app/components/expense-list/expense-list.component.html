@@ -1,1 +1,13 @@
-<p>expense-list works!</p>
+<h3>Gastos</h3>
+
+<app-expense-search></app-expense-search>
+
+@for( expense of arrExpenses; track expense.Id) {
+    <article class="col-12 col-md-6 col-xl-4">
+      <app-expense-card [miExpense]="expense"></app-expense-card>
+    </article>
+    }@empty {
+    <h4>No hay gastos</h4>
+    }
+
+<button class="btn btn-danger mb-2">Nuevo Gasto</button>
