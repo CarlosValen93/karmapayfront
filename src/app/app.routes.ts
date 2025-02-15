@@ -6,9 +6,11 @@ import { TeamComponent } from './pages/team/team.component';
 import { ExpenseComponent } from './pages/expense/expense.component';
 import { NewExpenseComponent } from './pages/new-expense/new-expense.component';
 import { NewTeamComponent } from './pages/new-team/new-team.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
+    { path: 'home', component: HomeComponent},
     { path: 'register', component: RegisterComponent},
     { path: 'login', component: LoginComponent },
     { path: 'team', component: TeamComponent },
