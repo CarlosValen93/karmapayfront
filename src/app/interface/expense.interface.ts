@@ -1,10 +1,7 @@
-type category = 'Comida' | 'Ocio' | 'Transporte' | 'Compras';
-
 export interface IExpense {
     Id: number;
     Name: string;
     Amount: number;
-    Category: category;
     UserIDCreator: number;
     TeamID: number;
     CreationDate: Date;
