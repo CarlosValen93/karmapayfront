@@ -1,0 +1,27 @@
+/* Global styles */
+
+:root {
+    /* Font titles */
+    --primary-font: "Roboto", sans-serif;
+
+    /* Basic color: text and others */
+    --primary-color: #1C2D35;
+
+    /* Others colors */
+    --secondary-color: #8CBBE5;
+    --third-color: #FF644C;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    color: var(--primary-color);
+}
