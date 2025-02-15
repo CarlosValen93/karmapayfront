@@ -1,5 +1,3 @@
-<p>team works!</p>
-
 <section class="container">
 
     <div class="card p-3">
@@ -15,7 +13,7 @@
                 <div class="col-xl-8 col-md-6 col-xs-12">
                     <div class="p-3">
                         <h3>NOMBRE DEL GRUPO</h3>
-                        <h4>CATEGORÍA</h4>
+                        <h4>CATEGORÍA DEL GRUPO</h4>
                         <p>Descripción del grupo: lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies, nunc nunc.
                         </p>
                     </div>
@@ -33,13 +31,15 @@
         <div class="row m-3">
 
             <div class="card p-3 col-xl-6">
-            <h3>Gastos</h3>
-            <button class="btn btn-danger mb-2">Nuevo Gasto</button>
+
+                <app-expense-list></app-expense-list>
+            
             </div>
 
             <div class="card p-3 col-xl-6">
-            <h3>Integrantes</h3>
-            <button class="btn btn-danger mb-2">Invitar a alguien</button>
+
+                <app-user-list></app-user-list>
+            
             </div>
 
         </div>
