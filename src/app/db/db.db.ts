@@ -64,6 +64,7 @@ export const TEAMS: ITeam[] = [
 		"Name" : "Viaje a Cancún",
 		"Description" : "Grupo para compartir gastos del viaje a Cancún.",
 		"Img" : null,
+		"Category" : "Comida",
 		"CreationDate" : new Date("2025-02-14 12:32:11"),
 		"UpdatedDate" : new Date("2025-02-14 12:32:11")
 	},
@@ -72,6 +73,7 @@ export const TEAMS: ITeam[] = [
 		"Name" : "Departamento Compartido",
 		"Description" : "Gastos mensuales del departamento entre roomies.",
 		"Img" : null,
+		"Category" : "Ocio",
 		"CreationDate" : new Date("2025-02-14 12:32:11"),
 		"UpdatedDate" : new Date("2025-02-14 12:32:11")
 	},
@@ -80,6 +82,7 @@ export const TEAMS: ITeam[] = [
 		"Name" : "Amigos del Gym",
 		"Description" : "Para dividir costos de suplementos y equipo de ejercicio.",
 		"Img" : null,
+		"Category" : "Transporte",
 		"CreationDate" : new Date("2025-02-14 12:32:11"),
 		"UpdatedDate" : new Date("2025-02-14 12:32:11")
 	}
@@ -93,7 +96,6 @@ export const EXPENSES: IExpense[] = [
 		"CreationDate" : new Date("2025-02-14 12:32:11"),
 		"UpdatedDate" : new Date("2025-02-14 12:32:11"),
 		"Amount" : 45.99,
-		"Category" : "Comida",
 		"UserIDCreator" : 1,
 		"TeamID" : 1
 	},
@@ -103,7 +105,6 @@ export const EXPENSES: IExpense[] = [
 		"CreationDate" : new Date("2025-02-14 12:32:11"),
 		"UpdatedDate" : new Date("2025-02-14 12:32:11"),
 		"Amount" : 15.99,
-		"Category" : "Ocio",
 		"UserIDCreator" : 2,
 		"TeamID" : 1
 	},
@@ -113,7 +114,6 @@ export const EXPENSES: IExpense[] = [
 		"CreationDate" : new Date("2025-02-14 12:32:11"),
 		"UpdatedDate" : new Date("2025-02-14 12:32:11"),
 		"Amount" : 60.00,
-		"Category" : "Transporte",
 		"UserIDCreator" : 3,
 		"TeamID" : 2
 	},
@@ -123,7 +123,6 @@ export const EXPENSES: IExpense[] = [
 		"CreationDate" : new Date("2025-02-14 12:32:11"),
 		"UpdatedDate" : new Date("2025-02-14 12:32:11"),
 		"Amount" : 120.50,
-		"Category" : "Comida",
 		"UserIDCreator" : 4,
 		"TeamID" : 3
 	},
@@ -133,7 +132,6 @@ export const EXPENSES: IExpense[] = [
 		"CreationDate" : new Date("2025-02-14 12:32:11"),
 		"UpdatedDate" : new Date("2025-02-14 12:32:11"),
 		"Amount" : 35.75,
-		"Category" : "Compras",
 		"UserIDCreator" : 5,
 		"TeamID" : 2
 	}
