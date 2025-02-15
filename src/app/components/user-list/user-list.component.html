@@ -1,3 +1,13 @@
 <h3>Integrantes</h3>
+
 <app-user-search></app-user-search>
+
+@for( post of arrUsers; track post.Id) {
+    <article class="col-12 col-md-6 col-xl-4">
+      <app-user-card></app-user-card>
+    </article>
+    }@empty {
+    <h4>No hay integrantes</h4>
+    }
+
 <button class="btn btn-danger mb-2">Invitar a alguien</button>
