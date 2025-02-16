@@ -16,7 +16,7 @@ export const routes: Routes = [
     { path: 'team/:idTeam', component: TeamComponent },
     { path: 'user/:idUser', component: UserComponent },
     { path: 'expense/:idExpense', component: ExpenseComponent },
-    { path: 'expense/new', component: NewExpenseComponent },
-    { path: 'team/new', component: NewTeamComponent },
+    { path: 'newexpense', component: NewExpenseComponent },
+    { path: 'newteam', component: NewTeamComponent },
     { path: '*', redirectTo: '/home' } 
 ];
