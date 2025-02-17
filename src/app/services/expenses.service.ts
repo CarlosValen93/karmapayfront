@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { IExpense } from '../interface/expense.interface';
+import { EXPENSES } from '../db/db.db';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExpensesService {
-    /*private expenselist: IExpense[] = EXPENSES;
+    private expenselist: IExpense[] = EXPENSES;
   constructor() {
 
    }
@@ -21,5 +22,5 @@ get(id: number): IExpense {
 }
 add(expense: IExpense): void {
     this.expenselist.push(expense);
-}*/
+}
 }
