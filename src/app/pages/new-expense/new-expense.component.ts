@@ -14,11 +14,15 @@ export class NewExpenseComponent {
    constructor() {
       this.registerForm = new FormGroup({
        name: new FormControl(),
-      amount: new FormControl(),
-       assignation: new FormControl()
+      amount: new FormControl()
+       //assignation: new FormControl()
        })
 }
-onSubmit(){
-
+  async onSubmit(){
+  const expenseBody = {
+    name: this.registerForm.value.name,
+    amount: this.registerForm.value.amount
+  };
+  const user = this.expensesService.add(expenseBody);
 }
 }

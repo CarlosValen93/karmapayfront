@@ -20,7 +20,12 @@ export class RegisterComponent {
     });
   }
 async onSubmit(){
-  const user = await this.usersService.register();
+  const userBody = {
+    username: this.registerForm.value.username,
+    email: this.registerForm.value.mail,
+    password: this.registerForm.value.password
+  };
+  const user = await this.usersService.register(userBody);
 
 }
 }
