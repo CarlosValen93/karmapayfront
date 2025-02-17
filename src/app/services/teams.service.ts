@@ -3,6 +3,7 @@ import { inject,Injectable } from '@angular/core';
 import { ITeam } from '../interface/team.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../environments/environment.development';
+type UserBody = { name?: string, description: string, category: string, image: string };
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,10 @@ getByName(name: string) {
 }
 getById(id: number) {
   return firstValueFrom(
-    this.httpClient.get<ITeam>(`${this.baseUrl}/${id}`)
+    this.httpClient.get<ITeam | null >(`${this.baseUrl}/${id}`)
   );
 }
-  createTeam(body:ITeam){
+  createTeam(body:UserBody){
     return firstValueFrom(
       this.httpClient.post<ITeam>(`${this.baseUrl}/create`, body)
     )
