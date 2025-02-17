@@ -1,20 +1,43 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject,Injectable } from '@angular/core';
+import { ITeam } from '../interface/team.interface';
+import { firstValueFrom } from 'rxjs';
+import { environment } from '../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamsService {
+  private httpClient = inject(HttpClient)
+  private baseUrl = `${environment.apiUrl}/teams`;
 
-getById(){
+  getAll(){
+    return firstValueFrom(
+      this.httpClient.get<ITeam[]>(`${this.baseUrl}`)
+    );
 
 }
-getByName(){
+getByName(name: string) {
+  return firstValueFrom(
+    this.httpClient.get<ITeam[]>(`${this.baseUrl}/name/${name}`)
+  );
+}
+getById(id: number) {
+  return firstValueFrom(
+    this.httpClient.get<ITeam>(`${this.baseUrl}/${id}`)
+  );
+}
+  createTeam(body:ITeam){
+    return firstValueFrom(
+      this.httpClient.post<ITeam>(`${this.baseUrl}/create`, body)
+    )
 
-}
-createTeam(){
+  }
 
-}
-deleteTeam(){
-  
-}
+
+  deleteTeam(id: number) {
+    return firstValueFrom(
+      this.httpClient.delete(`${this.baseUrl}/${id}`)
+    );
+  }
 }
