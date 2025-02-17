@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrl: 'http://localhost:3000/api',
+    apiUrl: 'https://e05f-2a0c-5a82-8209-6600-d49b-368b-2be5-dbd.ngrok-free.app/',
     tokenName: 'store_token'
 };
