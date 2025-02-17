@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" [routerLink]="['/home']">karmapay</a>
+        <a class="navbar-brand" [routerLink]="['/home']">
+            <figure>
+                <img src="/images/karmapayLogo.png" alt="karmapayLogo">
+            </figure>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,16 +12,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Registro</a>
+                    <a class="nav-link" aria-current="page" [routerLink]="['/register']">Registro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" [routerLink]="['/login']">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa-solid fa-circle-plus"></i></a>
+                    <a class="nav-link" [routerLink]="['/team/new']"><i class="fa-solid fa-circle-plus"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"> <i class="fa-solid fa-circle-user"></i></a>
+                    <a class="nav-link" [routerLink]="['/home']"> <i class="fa-solid fa-circle-user"></i></a>
                 </li>
             </ul>
         </div>
