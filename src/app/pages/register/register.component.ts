@@ -9,10 +9,10 @@ import { UsersService } from '../../services/users.service';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  registroForm: FormGroup;
+  registerForm: FormGroup;
   usersService = inject(UsersService)
   constructor() {
-    this.registroForm = new FormGroup({
+    this.registerForm = new FormGroup({
       username: new FormControl(),
       mail: new FormControl(),
       password: new FormControl(),
