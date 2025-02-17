@@ -28,6 +28,13 @@ getById(id: number) {
     this.httpClient.get<ITeam | null >(`${this.baseUrl}/${id}`)
   );
 }
+updateById(id: number, body: UserBody) {
+  return firstValueFrom(
+    this.httpClient.put<ITeam>(`${this.baseUrl}/update/${id}`, body)
+  );
+}
+
+
   createTeam(body:UserBody){
     return firstValueFrom(
       this.httpClient.post<ITeam>(`${this.baseUrl}/create`, body)
