@@ -1,6 +1,6 @@
 <h3>Integrantes</h3>
 
-<app-user-search></app-user-search>
+<app-user-search (busquedaEmitida)="searchByUsername($event)"></app-user-search>
 
 @for( user of arrUsers; track user.Id) {
   <article class="col-12 col-md-6 col-xl-4">

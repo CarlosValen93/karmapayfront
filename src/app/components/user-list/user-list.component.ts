@@ -16,7 +16,24 @@ export class UserListComponent {
   arrUsers: IUser[] =[];
   usersServices = inject(UsersService)
 
+async ngOnInit(){
+  try {
+    let users: IUser[] = await this.usersServices.getAll()
+    this.arrUsers = users;
+    console.log(this.arrUsers);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
+async searchByUsername(event: string) {
+  try {
+    const result = await this.usersServices.getByEmail(event);
+    this.arrUsers = result ? [result] : [];
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 
 }
