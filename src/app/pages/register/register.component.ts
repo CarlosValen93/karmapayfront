@@ -19,8 +19,13 @@ export class RegisterComponent {
       checkPassword: new FormControl()
     });
   }
-  async onSubmit() {
-    /* const user = await this.usersService.register(); */
+async onSubmit(){
+  const userBody = {
+    username: this.registerForm.value.username,
+    email: this.registerForm.value.mail,
+    password: this.registerForm.value.password
+  };
+  const user = await this.usersService.register(userBody);
 
   }
 }

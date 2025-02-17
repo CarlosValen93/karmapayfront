@@ -19,6 +19,6 @@ export class NewTeamComponent {
        })
 }
 async onSubmit(){
-  const NewTeam = await this.teamsService.createTeam()
+
 }
 }

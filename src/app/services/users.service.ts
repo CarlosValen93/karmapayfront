@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { environment } from '../environments/environment.development';
 
-type UserBody = { username?: string, email: string, password: string };
+type UserBody = { username: string, email: string, password: string, img?: string};
 type RegisterResponse = { success: string, user: IUser };
 type LoginResponse = { success: string, token: string };
 

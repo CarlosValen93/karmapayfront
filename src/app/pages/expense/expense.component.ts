@@ -5,7 +5,7 @@ import { IExpense } from '../../interface/expense.interface';
 
 @Component({
   selector: 'app-expense',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './expense.component.html',
   styleUrl: './expense.component.css'
 })

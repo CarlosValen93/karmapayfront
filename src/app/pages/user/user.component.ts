@@ -5,7 +5,7 @@ import { IUser } from '../../interface/user.interface';
 
 @Component({
   selector: 'app-user',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
