@@ -1,7 +1,8 @@
 <section class="container">
+    <app-select-category></app-select-category>
     <div>
         @for (team of arrTeams; track team.Id) {
-        <app-team-card></app-team-card>
+        <app-team-card [miTeam]="team"></app-team-card>
         }
 
     </div>
