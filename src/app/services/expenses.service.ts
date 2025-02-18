@@ -27,7 +27,7 @@ export class ExpensesService {
 // add(expense: IExpense): void {
 //     this.expenselist.push(expense);
 // }
-private baseUrl = `${environment.apiUrl}/expenses`;
+private baseUrl = `${environment.apiUrl}/api/expenses`;
 private httpClient = inject(HttpClient);
 constructor() { }
 
