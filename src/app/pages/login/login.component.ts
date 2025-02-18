@@ -1,7 +1,7 @@
-import { HttpRequest, HttpResponse } from '@angular/common/http';
+import {  HttpResponse } from '@angular/common/http';
 import { UsersService } from './../../services/users.service';
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -19,7 +19,10 @@ export class LoginComponent {
   constructor() {
   
     this.loginForm = new FormGroup({
-      mail: new FormControl(),
+      mail: new FormControl('', [
+       Validators.required,
+       Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)
+      ]),
       password: new FormControl()
     })
   }
@@ -30,7 +33,7 @@ export class LoginComponent {
       this.loginForm.reset();
       this.router.navigateByUrl('/home');
     } catch (error: unknown) {
-      let errorMessage = 'Email contraseña no válidos.';
+      let errorMessage = 'Email o contraseña no válidos.';
   
       if (error instanceof HttpResponse && error.status === 401) {
         errorMessage = 'Email o contraseña incorrectos.';
@@ -48,6 +51,9 @@ export class LoginComponent {
       this.loginForm.reset();
       console.error('Error en el login:', error);
     }
+  }
+  checkErrorField(field: string, error: string): boolean {
+    return this.loginForm.get(field)?.hasError(error) && this.loginForm.get(field)?.touched ? true : false;
   }
   
 

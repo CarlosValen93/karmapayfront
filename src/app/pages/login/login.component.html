@@ -3,13 +3,23 @@
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
                 <label for="" class="form-label">Email</label>
-                <input type="text" class="form-control" formControlName="mail">
+                <input type="email" class="form-control" formControlName="mail">
+                @if(checkErrorField('mail', 'required')){
+                    <p>Email es obligatorio</p>
+
+                }
+               
+                    @if(checkErrorField('mail', 'pattern')){
+                        <p>Formato no válido</p>
+                    }
+            
+                 
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Password</label>
                 <input type="password" class="form-control" formControlName="password">
             </div>
-            <input type="submit" value="Enviar" class="btn btn-info">
+            <input type="submit" value="Enviar" class="btn btn-info" [disabled]="loginForm.invalid">
         </form>
     </div>
 </div>
