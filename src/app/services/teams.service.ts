@@ -3,7 +3,7 @@ import { inject,Injectable } from '@angular/core';
 import { category, ITeam } from '../interface/team.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../environments/environment.development';
-type UserBody = { name?: string, description: string, category: string, image: string };
+type UserBody = { Name?: string, Description: string, Category: string, Img: string };
 
 @Injectable({
   providedIn: 'root'
