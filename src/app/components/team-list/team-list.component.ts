@@ -10,10 +10,22 @@ import { ITeam } from '../../interface/team.interface';
   styleUrl: './team-list.component.css'
 })
 export class TeamListComponent {
-  /*   arrTeams: ITeam[] = [];
-    teamsService: inject(TeamsService);
+  arrTeams: ITeam[] = [];
+  teamsService = inject(TeamsService);
+
+  async ngOnInit() {
+    this.arrTeams = await this.teamsService.getAll();
+
+    /*     try {
+          let response: ITeam[] = await this.teamsService.getAll();
+          this.arrTeams = response;
+          console.log(this.arrTeams);
+        }
+    
+        catch (err) {
+          console.log(err);
+    
+        } */
   }
-  
-  ngOnInit() {
-  */
-} 
+}
+
