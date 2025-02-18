@@ -44,6 +44,7 @@ export class RegisterComponent {
 
     return password === checkPassword ? null : { 'passwordvalidator': true };
   }
+  //Poner que pasa cuando el nombre de un usuario ya esta cogido
   async onSubmit() {
     if (this.registerForm.invalid) {
       return;

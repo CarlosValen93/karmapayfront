@@ -26,21 +26,16 @@ export class LoginComponent {
   async onSubmit() {
     try {
       const response = await this.usersService.login(this.loginForm.value);
-  
-
       localStorage.setItem('crm_token', response.token);
-  
- 
+      this.loginForm.reset();
       this.router.navigateByUrl('/home');
     } catch (error: unknown) {
       let errorMessage = 'Usuario o contraseña no válidos.';
   
-    
       if (error instanceof HttpResponse && error.status === 401) {
         errorMessage = 'Usuario o contraseña incorrectos.';
       }
   
-
       Swal.fire({
         title: 'Error',
         text: errorMessage,
@@ -50,9 +45,11 @@ export class LoginComponent {
         this.router.navigateByUrl('/login');
       });
   
+      this.loginForm.reset();
       console.error('Error en el login:', error);
     }
   }
+  
 
 
   }
