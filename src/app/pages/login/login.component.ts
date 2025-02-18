@@ -30,10 +30,10 @@ export class LoginComponent {
       this.loginForm.reset();
       this.router.navigateByUrl('/home');
     } catch (error: unknown) {
-      let errorMessage = 'Usuario o contraseña no válidos.';
+      let errorMessage = 'Email contraseña no válidos.';
   
       if (error instanceof HttpResponse && error.status === 401) {
-        errorMessage = 'Usuario o contraseña incorrectos.';
+        errorMessage = 'Email o contraseña incorrectos.';
       }
   
       Swal.fire({
