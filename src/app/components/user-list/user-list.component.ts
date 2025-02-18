@@ -20,7 +20,6 @@ async ngOnInit(){
   try {
     let users: IUser[] = await this.usersServices.getAll()
     this.arrUsers = users;
-    console.log(this.arrUsers);
   } catch (err) {
     console.log(err);
   }
