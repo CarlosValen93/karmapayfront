@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { UserSearchComponent } from '../user-search/user-search.component';
 import { IUser } from '../../interface/user.interface';
@@ -15,10 +15,11 @@ import { UsersService } from '../../services/users.service';
 export class UserListComponent {
   arrUsers: IUser[] =[];
   usersServices = inject(UsersService)
+  @Input() idTeam: number = 0;
 
 async ngOnInit(){
   try {
-    let users: IUser[] = await this.usersServices.getAll()
+    let users: IUser[] = await this.usersServices.getByIdGroup(this.idTeam)
     this.arrUsers = users;
   } catch (err) {
     console.log(err);

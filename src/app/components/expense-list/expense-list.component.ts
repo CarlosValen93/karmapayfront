@@ -1,5 +1,5 @@
 import { IExpense } from './../../interface/expense.interface';
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { ExpenseCardComponent } from '../expense-card/expense-card.component';
 import { ExpenseSearchComponent } from '../expense-search/expense-search.component';
 import { ExpensesService } from '../../services/expenses.service';
@@ -14,10 +14,12 @@ import { RouterLink } from '@angular/router';
 export class ExpenseListComponent {
   arrExpenses: IExpense[] =[];
   expensesServices = inject(ExpensesService);
+  @Input() idTeam: number = 0;
+
 
   async ngOnInit(){
     try {
-      let expenses: IExpense[] = await this.expensesServices.getAll()
+      let expenses: IExpense[] = await this.expensesServices.getbyIdGroup(this.idTeam)
       this.arrExpenses = expenses;
     } catch (err) {
       console.log(err);

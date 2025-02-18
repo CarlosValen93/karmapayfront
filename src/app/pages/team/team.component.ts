@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, Output } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ExpenseListComponent } from "../../components/expense-list/expense-list.component";
 import { UserListComponent } from "../../components/user-list/user-list.component";
@@ -18,6 +18,8 @@ export class TeamComponent {
   teamsService=inject(TeamsService);
   router =inject(Router);
   team!: ITeam
+
+
 
   async ngOnInit() {
     try {
