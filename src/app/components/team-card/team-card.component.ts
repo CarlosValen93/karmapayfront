@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ITeam } from '../../interface/team.interface';
 
 @Component({
   selector: 'app-team-card',
@@ -8,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class TeamCardComponent {
 
+  @Input() miTeam!: ITeam;
 }

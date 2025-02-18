@@ -1,0 +1,10 @@
+.hero {
+    display: flex;
+    align-items: center;
+
+
+}
+
+.info {
+    margin-right: 10rem;
+}
