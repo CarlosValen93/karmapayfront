@@ -25,13 +25,27 @@ getByName(name: string) {
 }
 getById(id: number) {
   return firstValueFrom(
-    this.httpClient.get<ITeam | null >(`${this.baseUrl}/${id}`)
-  );
+    this.httpClient.get<ITeam | null>(`${this.baseUrl}/${id}`)
+  ).then(team => {
+    if (!team) {
+      throw new Error(`ID ${id} no encontrado`);
+    }
+    return team;
+  }).catch(error => {
+    throw new Error(`Error al obtener el equipo: ${error.message}`);
+  });
 }
-updateById(id: number, body: UserBody) {
+
+updateById(id: number, body: Partial<UserBody>): Promise<ITeam> {
+  if (Object.keys(body).length === 0) {
+    return Promise.reject(new Error("No has actualizado ningún campo"));
+  }
+
   return firstValueFrom(
     this.httpClient.put<ITeam>(`${this.baseUrl}/update/${id}`, body)
-  );
+  ).catch(error => {
+    throw new Error(`Error al actualizar el equipo con ID ${id}: ${error.message}`);
+  });
 }
 
 
