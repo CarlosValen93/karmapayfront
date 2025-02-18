@@ -18,6 +18,9 @@
             <div class="mb-3">
                 <label for="" class="form-label">Password</label>
                 <input type="password" class="form-control" formControlName="password">
+                @if(checkErrorField('password', 'required')){
+                    <p>Contraseña obligatoria</p>
+                }
             </div>
             <input type="submit" value="Enviar" class="btn btn-info" [disabled]="loginForm.invalid">
         </form>

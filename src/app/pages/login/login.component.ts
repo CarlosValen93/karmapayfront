@@ -23,7 +23,11 @@ export class LoginComponent {
        Validators.required,
        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)
       ]),
-      password: new FormControl()
+      password: new FormControl('', [
+      Validators.required
+      
+      
+    ])
     })
   }
   async onSubmit() {
