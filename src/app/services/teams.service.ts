@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject,Injectable } from '@angular/core';
-import { ITeam } from '../interface/team.interface';
+import { category, ITeam } from '../interface/team.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../environments/environment.development';
 type UserBody = { name?: string, description: string, category: string, image: string };
@@ -42,7 +42,10 @@ updateById(id: number, body: UserBody) {
 
   }
 
-
+  getAllCategories():string[] {
+    const categories:string[] = Object.values(category);
+    return categories;
+  }
   deleteTeam(id: number) {
     return firstValueFrom(
       this.httpClient.delete(`${this.baseUrl}/${id}`)
