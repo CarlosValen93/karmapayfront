@@ -7,6 +7,7 @@ import { environment } from '../environments/environment.development';
 type UserBody = { username: string, email: string, password: string, img?: string};
 type RegisterResponse = { success: string, user: IUser };
 type LoginResponse = { success: string, token: string };
+type UpdateUserBody = { username?: string, email?: string, img?: string};
 
 @Injectable({
     providedIn: 'root'
@@ -24,8 +25,10 @@ export class UsersService {
             this.httpClient.get<IUser[]>(this.baseUrl)
         );
     }
-    createUser() {
-
+    getByIdGroup(id: number): Promise<IUser[]> {
+        return lastValueFrom(
+            this.httpClient.get<IUser[]>(`${this.baseUrl}/group/${id}`)
+        );
     }
     getById(id: number): Promise<IUser | null> {
         return lastValueFrom(
@@ -52,5 +55,10 @@ export class UsersService {
             return true;
         }
         return false;
+    }
+    UpdateProfile(id:number ,body: UpdateUserBody) {
+        return lastValueFrom(
+            this.httpClient.put<IUser>(`${this.baseUrl}/update/${id}`, body)
+        );
     }
 }
