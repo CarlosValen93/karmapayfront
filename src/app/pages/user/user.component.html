@@ -1,3 +1,4 @@
+@if (user) {
 <section class="container my-3">
 
     <h3>Detalle de usuario</h3>
@@ -19,7 +20,7 @@
             <p><strong>Password:</strong> {{user.Password}}</p>
             <button class="btn btn-danger m-2" (click)="ngChangeInfo()">Modificar info</button>
             <button class="btn btn-danger m-2" (click)="ngOnLogOut()">Log Out</button>
-            <button class="btn btn-danger" [routerLink]="['/team/:idTeam']">Volver al grupo</button>
+            <button class="btn btn-danger" (click)="goBack()">Volver al grupo</button>
         </div>
 
     </div>
@@ -28,3 +29,4 @@
     </div>
 
 </section>
+}
