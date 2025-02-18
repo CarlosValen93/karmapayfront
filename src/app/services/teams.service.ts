@@ -10,7 +10,7 @@ type UserBody = { name?: string, description: string, category: string, image: s
 })
 export class TeamsService {
   private httpClient = inject(HttpClient)
-  private baseUrl = `${environment.apiUrl}/teams`;
+  private baseUrl = `${environment.apiUrl}/api/teams`;
 
   getAll(){
     return firstValueFrom(
