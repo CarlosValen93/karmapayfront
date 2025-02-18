@@ -12,7 +12,7 @@ type LoginResponse = { success: string, token: string };
     providedIn: 'root'
 })
 export class UsersService {
-    private baseUrl = `${environment.apiUrl}/users`;
+    private baseUrl = `${environment.apiUrl}/api/users`;
     private httpClient = inject(HttpClient);
 
     constructor() {
