@@ -2,10 +2,11 @@ import { TeamsService } from './../../services/teams.service';
 import { Component, inject } from '@angular/core';
 import { TeamCardComponent } from '../team-card/team-card.component';
 import { ITeam } from '../../interface/team.interface';
+import { SelectCategoryComponent } from "./select-category/select-category.component";
 
 @Component({
   selector: 'app-team-list',
-  imports: [TeamCardComponent],
+  imports: [TeamCardComponent, SelectCategoryComponent],
   templateUrl: './team-list.component.html',
   styleUrl: './team-list.component.css'
 })
@@ -14,18 +15,21 @@ export class TeamListComponent {
   teamsService = inject(TeamsService);
 
   async ngOnInit() {
-    this.arrTeams = await this.teamsService.getAll();
 
-    /*     try {
-          let response: ITeam[] = await this.teamsService.getAll();
-          this.arrTeams = response;
-          console.log(this.arrTeams);
-        }
-    
-        catch (err) {
-          console.log(err);
-    
-        } */
+    try {
+      let response: ITeam[] = await this.teamsService.getAll();
+      this.arrTeams = response;
+      console.log(this.arrTeams);
+    }
+
+    catch (err) {
+      console.log(err);
+
+    }
+  }
+
+  ngOnChanges() {
+
   }
 }
 
