@@ -68,7 +68,7 @@ getAll(): Promise<IExpense[]> {
   }
   getbyIdGroup(id: number): Promise<IExpense[]> {
     return lastValueFrom(
-      this.httpClient.get<IExpense[]>(`${this.baseUrl}/group/${id}`)
+      this.httpClient.get<IExpense[]>(`${this.baseUrl}/team/${id}`)
     );
   }
 }

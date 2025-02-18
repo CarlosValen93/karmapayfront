@@ -3,6 +3,7 @@ import { RouterLink, Router } from '@angular/router';
 import { ExpensesService } from '../../services/expenses.service';
 import { IExpense } from '../../interface/expense.interface';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-expense',
@@ -15,6 +16,7 @@ export class ExpenseComponent {
   expensesService=inject(ExpensesService);
   router =inject(Router);
   expense!: IExpense
+  location = inject(Location);
 
   async ngOnInit() {
     try {
@@ -57,6 +59,10 @@ export class ExpenseComponent {
        text: "Error al borrar el gasto",
     });
     }
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   ngChangeInfo(){

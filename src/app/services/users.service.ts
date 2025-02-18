@@ -27,7 +27,7 @@ export class UsersService {
     }
     getByIdGroup(id: number): Promise<IUser[]> {
         return lastValueFrom(
-            this.httpClient.get<IUser[]>(`${this.baseUrl}/group/${id}`)
+            this.httpClient.get<IUser[]>(`${this.baseUrl}/team/${id}`)
         );
     }
     getById(id: number): Promise<IUser | null> {

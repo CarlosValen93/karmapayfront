@@ -1,3 +1,4 @@
+@if (team) {
 <section class="container">
 
     <div class="card p-2">
@@ -29,13 +30,13 @@
 
             <div class="card p-4 col-xl-6">
 
-                <app-expense-list></app-expense-list>
+                <app-expense-list [idTeam]="idTeam"></app-expense-list>
             
             </div>
 
             <div class="card p-4 col-xl-6">
 
-                <app-user-list></app-user-list>
+                <app-user-list [idTeam]="idTeam"></app-user-list>
             
             </div>
 
@@ -44,3 +45,5 @@
     </div>
     
 </section>
+
+}

@@ -1,3 +1,5 @@
+@if (expense) {
+
 <section class="container my-3">
     <h3 class="mb-3">Detalle de gasto</h3>
     <div class="card p-3 shadow-sm2">
@@ -11,7 +13,9 @@
         <p><strong>Asignación:</strong> % asignado del gasto</p>
         <button class="btn btn-danger m-2">Modificar</button>
         <button class="btn btn-danger m-2" (click)="ngDeleteExpense()">Borrar</button>
-        <button class="btn btn-danger" [routerLink]="['/team/:idTeam']">Volver al grupo</button>
+        <button class="btn btn-danger" (click)="goBack()">Volver al grupo</button>
       </div>
     </div>
   </section>
+
+}
