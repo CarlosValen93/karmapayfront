@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 export class RegisterComponent {
   registerForm: FormGroup;
   usersService = inject(UsersService)
+  router = inject(Router)
   constructor() {
     this.registerForm = new FormGroup({
       username: new FormControl('', [
@@ -57,17 +59,17 @@ export class RegisterComponent {
         text: `El usuario se ha sido registrado correctamente.`,
         icon: 'success',
         confirmButtonText: 'Aceptar'
+      })
+      .then(() => {
+        this.router.navigate(['/home']);
       });
-  
+
   
       this.registerForm.reset();
     } catch (error: unknown) {
       let errorMessage = 'Hubo un problema al registrar el usuario.';
   
-
-  
-     
-     Swal.fire({
+      Swal.fire({
         title: 'Error',
         text: errorMessage,
         icon: 'error',
