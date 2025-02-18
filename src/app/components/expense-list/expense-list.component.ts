@@ -19,7 +19,6 @@ export class ExpenseListComponent {
     try {
       let expenses: IExpense[] = await this.expensesServices.getAll()
       this.arrExpenses = expenses;
-      console.log(this.arrExpenses);
     } catch (err) {
       console.log(err);
     }
