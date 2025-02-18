@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 
 type ExpenseBody = { name:string, amount: number};
+type UpdateExpenseBody = { name?:string, amount?: number};
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +59,16 @@ getAll(): Promise<IExpense[]> {
   delete(id: number): Promise<void> {
     return lastValueFrom(
       this.httpClient.delete<void>(`${this.baseUrl}/delete/${id}`)
+    );
+  }
+  update(id: number, body: UpdateExpenseBody): Promise<IExpense> {
+    return lastValueFrom(
+      this.httpClient.put<IExpense>(`${this.baseUrl}/update/${id}`, body)
+    );
+  }
+  getbyIdGroup(id: number): Promise<IExpense[]> {
+    return lastValueFrom(
+      this.httpClient.get<IExpense[]>(`${this.baseUrl}/group/${id}`)
     );
   }
 }
