@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -13,19 +14,71 @@ export class RegisterComponent {
   usersService = inject(UsersService)
   constructor() {
     this.registerForm = new FormGroup({
-      username: new FormControl(),
-      mail: new FormControl(),
-      password: new FormControl(),
-      checkPassword: new FormControl()
-    });
+      username: new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+    Validators.maxLength(20),
+    ]),
+      mail: new FormControl('',[
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)
+      
+    ]),
+    checkPassword: new FormControl('',[])
+  
+    }, [this.passwordvalidator]);
   }
-async onSubmit(){
-  const userBody = {
-    username: this.registerForm.value.username,
-    email: this.registerForm.value.mail,
-    password: this.registerForm.value.password
-  };
-  const user = await this.usersService.register(userBody);
+  passwordvalidator(formFields: AbstractControl): any {
+    let password = formFields.get('password')?.value;
+    let checkPassword = formFields.get('checkPassword')?.value; 
 
+    if (!password || !checkPassword) {
+      return null;
+    }
+
+    return password === checkPassword ? null : { 'passwordvalidator': true };
   }
+  async onSubmit() {
+    if (this.registerForm.invalid) {
+      return;
+    }
+  
+    try {
+
+      const user = await this.usersService.register(this.registerForm.value);
+  
+     
+      Swal.fire({
+        title: '¡Registrado con éxito!',
+        text: `El usuario se ha sido registrado correctamente.`,
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      });
+  
+  
+      this.registerForm.reset();
+    } catch (error: unknown) {
+      let errorMessage = 'Hubo un problema al registrar el usuario.';
+  
+
+  
+     
+     Swal.fire({
+        title: 'Error',
+        text: errorMessage,
+        icon: 'error',
+        confirmButtonText: 'Intentar de nuevo'
+      });
+  
+      console.error(error);
+    }
+  }
+  checkErrorField(field: string, error: string): boolean {
+    return this.registerForm.get(field)?.hasError(error) && this.registerForm.get(field)?.touched ? true : false;
+  }
+  
 }
