@@ -1,0 +1,22 @@
+<div class="row mt-5">
+    <div class="col-12 col-lg-6 offset-0 offset-lg-3">
+        <h1>Nuevo gasto</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="" class="form-label">Título del gasto </label>
+                <input type="text" class="form-control" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Cantidad</label>
+                <input type="text" class="form-control" formControlName="amount">
+            </div>
+       
+            <!-- <div class="mb-3">
+                <label for="" class="form-label">Asignación por integrante </label>
+                <input type="text" class="form-control" formControlName="assignation">
+            </div> -->
+        
+            <input type="submit" value="Modificar Gasto" class="btn btn-info">
+        </form>
+    </div>
+</div>
