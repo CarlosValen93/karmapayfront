@@ -1,6 +1,6 @@
-<select class="form-select mb-4">
-    <option selected>Selecione una categoría</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+<select class="form-select mb-4" (change)="getByCategory($event)">
+    <option value="">Selecciona una categoria</option>
+    @for(category of categories; track category){
+    <option [value]="category">{{category}}</option>
+    }
 </select>

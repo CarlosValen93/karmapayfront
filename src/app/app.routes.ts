@@ -19,5 +19,5 @@ export const routes: Routes = [
     { path: 'expense/:idExpense', component: ExpenseComponent },
     { path: 'newexpense', component: NewExpenseComponent },
     { path: 'newteam', component: NewTeamComponent },
-    { path: '*', component: NotfoundComponent }
+    { path: '**', component: NotfoundComponent }
 ];

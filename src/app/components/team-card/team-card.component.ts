@@ -10,5 +10,5 @@ import { RouterLink } from '@angular/router';
 })
 export class TeamCardComponent {
 
-  @Input() miTeam!: ITeam;
+  @Input() oneTeam!: ITeam;
 }

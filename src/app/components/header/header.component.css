@@ -1,12 +1,17 @@
-.container-fluid {
-    margin: 2rem 10rem;
+.header {
+    padding: 2.5rem 0rem;
+    margin-bottom: 5rem;
+}
 
+figure {
+    margin: 0px;
 }
 
 img {
-    max-width: 80%;
+    max-width: 60%;
 }
 
 a {
     font-size: 1rem;
+    color: var(--primary-color)
 }

@@ -2,7 +2,11 @@
     <app-select-category></app-select-category>
     <div>
         @for (team of arrTeams; track team.Id) {
-        <app-team-card [miTeam]="team"></app-team-card>
+        <app-team-card [oneTeam]="team"></app-team-card>
+        }@empty {
+        <article>
+            <h3>No hay grupos</h3>
+        </article>
         }
 
     </div>
