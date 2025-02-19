@@ -71,7 +71,7 @@ getAll(): Promise<IExpense[]> {
       return Promise.reject(new Error("No has actualizado ningún campo"));
     }
     return lastValueFrom(
-      this.httpClient.put<IExpense>(`${this.baseUrl}/update/${id}`, body)
+      this.httpClient.put<IExpense>(`${this.baseUrl}/${id}`, body)
     );
   }
   getbyIdGroup(id: number): Promise<IExpense[]> {

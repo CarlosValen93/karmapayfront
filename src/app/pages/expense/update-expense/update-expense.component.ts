@@ -24,6 +24,6 @@ async onSubmit(){
     name: this.registerForm.value.name,
     amount: this.registerForm.value.amount
   };
-  const user = this.expensesService.update(this.idExpense,expenseBody);
+  this.expensesService.update(this.idExpense,expenseBody);
 }
 }
