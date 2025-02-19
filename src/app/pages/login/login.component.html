@@ -1,28 +1,32 @@
 <div class="row mt-5">
     <div class="col-12 col-lg-6 offset-0 offset-lg-3">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-                <label for="" class="form-label">Email</label>
-                <input type="email" class="form-control" formControlName="mail">
+        <div class="card p-4 shadow-lg border-0 rounded-4" style="background: #f8f9fa;">
+            <h2 class="text-center mb-4 text-primary">Iniciar Sesión</h2>
+            
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Email</label>
+                    <input type="email" class="form-control border-primary rounded-3" formControlName="mail" placeholder="Ingresa tu email">
+                  
                 @if(checkErrorField('mail', 'required')){
                     <p>Email es obligatorio</p>
 
                 }
                
                     @if(checkErrorField('mail', 'pattern')){
-                        <p>Formato no válido</p>
+                        <p class="alert alert-danger p-1 mt-1">Formato no válido</p>
                     }
             
                  
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">Password</label>
-                <input type="password" class="form-control" formControlName="password">
+                <label class="form-label fw-bold">Contraseña</label>
+                <input type="password" class="form-control border-primary rounded-3" formControlName="password" placeholder="Ingresa tu contraseña">
                 @if(checkErrorField('password', 'required')){
                     <p>Contraseña obligatoria</p>
                 }
             </div>
-            <input type="submit" value="Enviar" class="btn btn-info" [disabled]="loginForm.invalid">
+            <input type="submit" value="Enviar"  class="btn btn-danger btn-lg rounded-3 fw-bold" [disabled]="loginForm.invalid">
         </form>
     </div>
 </div>
