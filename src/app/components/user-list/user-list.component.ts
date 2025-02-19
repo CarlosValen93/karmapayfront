@@ -28,8 +28,13 @@ async ngOnInit(){
 
 async searchByUsername(event: string) {
   try {
-    const result = await this.usersServices.getByUsername(event);
-    this.arrUsers = result ? [result] : [];
+    if(event) {
+      const result = await this.usersServices.getByUsername(event, this.idTeam);
+      this.arrUsers = result 
+    } else {
+      let users: IUser[] = await this.usersServices.getByIdGroup(this.idTeam)
+    this.arrUsers = users;
+    }
   } catch (err) {
     console.log(err);
   }

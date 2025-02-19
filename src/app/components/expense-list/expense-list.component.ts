@@ -28,16 +28,17 @@ export class ExpenseListComponent {
 
   async searchByName(event: string) {
     try {
-      const result = await this.expensesServices.getByName(event);
-      this.arrExpenses = result
-      console.log(result)
+      if (event) {
+        const result = await this.expensesServices.getByName(event, this.idTeam);
+        this.arrExpenses = result
+        console.log(result)
+      } else {
+        let expenses: IExpense[] = await this.expensesServices.getbyIdGroup(this.idTeam)
+        this.arrExpenses = expenses;
+      }
     } catch (err) {
       console.log(err);
     }
   }
-
-  // Campo esté vacío y no devuelva nada
-  //
-
 
 }
