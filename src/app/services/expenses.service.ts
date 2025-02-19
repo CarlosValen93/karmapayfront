@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 
 type ExpenseBody = { name:string, amount: number};
-type UpdateExpenseBody = { name?:string, amount?: number};
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +61,10 @@ getAll(): Promise<IExpense[]> {
       this.httpClient.delete<void>(`${this.baseUrl}/delete/${id}`)
     );
   }
-  update(id: number, body: UpdateExpenseBody): Promise<IExpense> {
+  update(id: number, body: Partial<ExpenseBody>): Promise<IExpense> {
+    if (Object.keys(body).length === 0) {
+      return Promise.reject(new Error("No has actualizado ningún campo"));
+    }
     return lastValueFrom(
       this.httpClient.put<IExpense>(`${this.baseUrl}/update/${id}`, body)
     );

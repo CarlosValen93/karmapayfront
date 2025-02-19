@@ -7,7 +7,6 @@ import { environment } from '../environments/environment.development';
 type UserBody = { username: string, email: string, password: string, img?: string};
 type RegisterResponse = { success: string, user: IUser };
 type LoginResponse = { success: string, token: string };
-type UpdateUserBody = { username?: string, email?: string, img?: string};
 
 @Injectable({
     providedIn: 'root'
@@ -65,7 +64,10 @@ export class UsersService {
         }
         return false;
     }
-    UpdateProfile(id:number ,body: UpdateUserBody) {
+    UpdateProfile(id:number ,body: Partial<UserBody>) {
+        if (Object.keys(body).length === 0) {
+            return Promise.reject(new Error("No has actualizado ningún campo"));
+        }
         return lastValueFrom(
             this.httpClient.put<IUser>(`${this.baseUrl}/update/${id}`, body)
         );
