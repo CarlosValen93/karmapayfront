@@ -1,13 +1,22 @@
-<section class="container">
-    <app-select-category></app-select-category>
-    <div>
-        @for (team of arrTeams; track team.Id) {
-        <app-team-card [oneTeam]="team"></app-team-card>
-        }@empty {
-        <article>
-            <h3>No hay grupos</h3>
-        </article>
-        }
+<div class="container">
+    <section class=" row">
+        <div class="col-md-6">
+            <app-select-category (selectCategory)="selectCategory($event)"></app-select-category>
+            <div>
+                @for (team of arrTeams; track team.Id) {
+                <app-team-card [oneTeam]="team"></app-team-card>
+                }@empty {
+                <article>
+                    <h3>No hay grupos</h3>
+                </article>
+                }
 
-    </div>
-</section>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+
+
+    </section>
+</div>

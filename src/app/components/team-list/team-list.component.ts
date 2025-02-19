@@ -29,10 +29,14 @@ export class TeamListComponent {
     }
   }
 
-  ngOnChanges() {
-
-    console.log()
-
+  async selectCategory(event: any) {
+    try {
+      const result = await this.teamsService.getByCategory(event);
+      this.arrTeams = result;
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 
