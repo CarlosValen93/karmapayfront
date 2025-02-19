@@ -22,41 +22,81 @@ export class NewExpenseComponent {
 }
 async onSubmit() {
   if (this.registerForm.invalid) {
-    Swal.fire({
-      title: 'Error',
-      text: 'Los datos ingresados no son válidos. Verifica los campos.',
-      icon: 'error',
-      confirmButtonText: 'Aceptar'
-    });
-    return;
+      Swal.fire({
+          title: 'Error',
+          text: 'Por favor, completa todos los campos correctamente.',
+          icon: 'error',
+          confirmButtonText: 'Revisar'
+      });
+      return;
   }
 
+  
+  const UserIDCreator = localStorage.getItem('UserIDCreator'); 
+  const TeamID = localStorage.getItem('TeamID'); 
+
+  if (!UserIDCreator || !TeamID) {
+      Swal.fire({
+          title: 'Error',
+          text: 'No se encontró información del usuario o del equipo. Por favor, inicia sesión de nuevo.',
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+      });
+      return;
+  }
+
+
+  const userID = Number(UserIDCreator);
+  const teamID = Number(TeamID);
+
+  if (isNaN(userID) || isNaN(teamID) || userID <= 0 || teamID <= 0) {
+      Swal.fire({
+          title: 'Error',
+          text: 'Los datos del usuario o equipo son inválidos. Inicia sesión de nuevo.',
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+      });
+      return;
+  }
+
+  //  Crear el objeto del gasto
   const expenseBody = {
-    name: this.registerForm.value.name,
-    amount: this.registerForm.value.amount
+      name: this.registerForm.value.name,
+      amount: this.registerForm.value.amount,
+      UserIDCreator: userID, 
+      TeamID: teamID
   };
 
   try {
-    const newExpense = await this.expensesService.add(expenseBody);
+      const newExpense = await this.expensesService.add(expenseBody);
 
-    Swal.fire({
-      title: '¡Gasto añadido!',
-      text: 'Se ha añadido tu gasto al grupo',
-      icon: 'success',
-      confirmButtonText: 'Aceptar'
-    });
+      Swal.fire({
+          title: '¡Gasto agregado!',
+          text: `El gasto ha sido registrado correctamente.`,
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+      });
 
-    this.registerForm.reset();
-  } catch (error) {
-    Swal.fire({
-      title: 'Error',
-      text: 'No se pudo agregar el gasto. Intenta de nuevo.',
-      icon: 'error',
-      confirmButtonText: 'Cerrar'
-    });
-    console.error(error);
+      this.registerForm.reset();
+  } catch (error: any) {
+      console.error(error);
+
+      let errorMessage = 'No se pudo agregar el gasto. Intenta de nuevo.';
+
+      if (error.error && error.error.message) {
+          errorMessage = error.error.message;
+      }
+
+      Swal.fire({
+          title: 'Error',
+          text: errorMessage,
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+      });
   }
 }
+
+
 
 checkErrorField(field: string, error: string): boolean {
   const control = this.registerForm.get(field);
