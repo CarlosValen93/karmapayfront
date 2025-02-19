@@ -40,12 +40,13 @@ export class UsersService {
         );
     }
 
-    getByUsername(name: string): Promise<IUser | null> {
-        return lastValueFrom(
-            this.httpClient.get<IUser | null>(`${this.baseUrl}/name/${name}`)
+    getByUsername(name: string, teamid:number): Promise<IUser []> {
+        const result = lastValueFrom(
+            this.httpClient.get<IUser []>(`${this.baseUrl}/name/${name}/${teamid}`)
         );
+        return result
+        
     }
-
 
 
     register(body: UserBody) {

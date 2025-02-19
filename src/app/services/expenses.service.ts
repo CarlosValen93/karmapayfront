@@ -45,12 +45,17 @@ getAll(): Promise<IExpense[]> {
      }
      return expense;
    }
-   getByName(name : string): Promise<IExpense []> {
-       return lastValueFrom(
-         this.httpClient.get<IExpense  []>(`${this.baseUrl}/name/${name}`)
-         
+   getByName(name : string, teamid:number): Promise<IExpense []> {
+       const result = lastValueFrom(
+         this.httpClient.get<IExpense  []>(`${this.baseUrl}/name/${name}/${teamid}`)
        );
+        return result
+
+       
   }
+
+
+  
   add(body: ExpenseBody): Promise<IExpense> {
     return lastValueFrom(
       this.httpClient.post<IExpense>(`${this.baseUrl}/add`, body)
