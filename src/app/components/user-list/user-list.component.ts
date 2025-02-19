@@ -28,7 +28,7 @@ async ngOnInit(){
 
 async searchByUsername(event: string) {
   try {
-    const result = await this.usersServices.getByEmail(event);
+    const result = await this.usersServices.getByUsername(event);
     this.arrUsers = result ? [result] : [];
   } catch (err) {
     console.log(err);

@@ -29,11 +29,15 @@ export class ExpenseListComponent {
   async searchByName(event: string) {
     try {
       const result = await this.expensesServices.getByName(event);
-      this.arrExpenses = result ? [result] : [];
+      this.arrExpenses = result
+      console.log(result)
     } catch (err) {
       console.log(err);
     }
   }
+
+  // Campo esté vacío y no devuelva nada
+  //
 
 
 }

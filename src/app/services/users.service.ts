@@ -37,9 +37,18 @@ export class UsersService {
     }
     getByEmail(name: string): Promise<IUser | null> {
         return lastValueFrom(
-            this.httpClient.get<IUser | null>(`${this.baseUrl}/${name}`)
+            this.httpClient.get<IUser | null>(`${this.baseUrl}/mail/${name}`)
         );
     }
+
+    getByUsername(name: string): Promise<IUser | null> {
+        return lastValueFrom(
+            this.httpClient.get<IUser | null>(`${this.baseUrl}/name/${name}`)
+        );
+    }
+
+
+
     register(body: UserBody) {
         return lastValueFrom(
             this.httpClient.post<RegisterResponse>(`${this.baseUrl}/register`, body)

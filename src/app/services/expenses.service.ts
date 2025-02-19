@@ -46,9 +46,10 @@ getAll(): Promise<IExpense[]> {
      }
      return expense;
    }
-   getByName(name : string): Promise<IExpense | null> {
+   getByName(name : string): Promise<IExpense []> {
        return lastValueFrom(
-         this.httpClient.get<IExpense | null>(`${this.baseUrl}/${name}`)
+         this.httpClient.get<IExpense  []>(`${this.baseUrl}/name/${name}`)
+         
        );
   }
   add(body: ExpenseBody): Promise<IExpense> {
