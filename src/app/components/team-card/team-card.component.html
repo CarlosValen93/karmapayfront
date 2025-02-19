@@ -1,20 +1,15 @@
-<div class="row">
-    <div class="card mb-3 col-md-6 pointer" [routerLink]="['/team', oneTeam.Id]">
-        <div class="row g-0">
-            <div class="col-md-2">
-                <figure>
-                    <img src="/images/teams.png" class="img-fluid rounded-start" alt="team">
-                </figure>
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{oneTeam.Name}}</h5>
-                    <p class="card-text"><small class="text-body-secondary">Debes 200€ </small></p>
-                </div>
+<div class="card mb-3 pointer" [routerLink]="['/team', oneTeam.Id]">
+    <div class="row g-0">
+        <div class="col-md-2">
+            <figure>
+                <img src="/images/teams.png" class="img-fluid rounded-start" alt="team">
+            </figure>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{oneTeam.Name}}</h5>
+                <p class="card-text"><small class="text-body-secondary">Debes 200€ </small></p>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-
     </div>
 </div>
