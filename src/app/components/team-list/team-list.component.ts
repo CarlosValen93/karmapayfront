@@ -1,5 +1,5 @@
 import { TeamsService } from './../../services/teams.service';
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { TeamCardComponent } from '../team-card/team-card.component';
 import { ITeam } from '../../interface/team.interface';
 import { SelectCategoryComponent } from "./select-category/select-category.component";
@@ -13,6 +13,7 @@ import { SelectCategoryComponent } from "./select-category/select-category.compo
 export class TeamListComponent {
   arrTeams: ITeam[] = [];
   teamsService = inject(TeamsService);
+  @Input() category: string = "";
 
   async ngOnInit() {
 
@@ -29,6 +30,8 @@ export class TeamListComponent {
   }
 
   ngOnChanges() {
+
+    console.log()
 
   }
 }

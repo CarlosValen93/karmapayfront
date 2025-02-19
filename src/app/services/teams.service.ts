@@ -56,13 +56,21 @@ export class TeamsService {
 
   }
 
-  getAllCategories(): string[] {
-    const categories: string[] = Object.values(category);
-    return categories;
-  }
+
   deleteTeam(id: number) {
     return firstValueFrom(
       this.httpClient.delete(`${this.baseUrl}/${id}`)
     );
+  }
+
+  getAllCategories(): string[] {
+    const categories: string[] = Object.values(category);
+    return categories;
+  }
+
+  getByCategory(category: category) {
+    return firstValueFrom(
+      this.httpClient.get<ITeam[]>(`${this.baseUrl}/category/${category}`)
+    )
   }
 }
