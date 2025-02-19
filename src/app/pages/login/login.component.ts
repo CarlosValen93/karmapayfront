@@ -34,6 +34,7 @@ export class LoginComponent {
   async onSubmit() {
     try {
       const response = await this.usersService.login(this.loginForm.value);
+
       localStorage.setItem(environment.tokenName, response.token);
       this.loginForm.reset();
       this.router.navigateByUrl('/home');

@@ -49,17 +49,7 @@ async onSubmit() {
   const userID = Number(UserIDCreator);
   const teamID = Number(TeamID);
 
-  if (isNaN(userID) || isNaN(teamID) || userID <= 0 || teamID <= 0) {
-      Swal.fire({
-          title: 'Error',
-          text: 'Los datos del usuario o equipo son inválidos. Inicia sesión de nuevo.',
-          icon: 'error',
-          confirmButtonText: 'Cerrar'
-      });
-      return;
-  }
 
-  //  Crear el objeto del gasto
   const expenseBody = {
       name: this.registerForm.value.name,
       amount: this.registerForm.value.amount,
@@ -78,23 +68,18 @@ async onSubmit() {
       });
 
       this.registerForm.reset();
-  } catch (error: any) {
-      console.error(error);
+   } catch (error: any) {
+    console.error(error);
 
-      let errorMessage = 'No se pudo agregar el gasto. Intenta de nuevo.';
-
-      if (error.error && error.error.message) {
-          errorMessage = error.error.message;
-      }
-
-      Swal.fire({
-          title: 'Error',
-          text: errorMessage,
-          icon: 'error',
-          confirmButtonText: 'Cerrar'
-      });
-  }
+    Swal.fire({
+        title: 'Error',
+        text: error?.error?.message || 'No se pudo agregar el gasto. Intenta de nuevo.',
+        icon: 'error',
+        confirmButtonText: 'Cerrar'
+    });
 }
+}
+
 
 
 
