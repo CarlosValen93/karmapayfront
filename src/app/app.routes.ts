@@ -8,16 +8,17 @@ import { NewExpenseComponent } from './pages/new-expense/new-expense.component';
 import { NewTeamComponent } from './pages/new-team/new-team.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
     { path: 'home', component: HomeComponent },
     { path: 'home/register', component: RegisterComponent },
     { path: 'home/login', component: LoginComponent },
-    { path: 'team/:idTeam', component: TeamComponent },
-    { path: 'user/:idUser', component: UserComponent },
-    { path: 'expense/:idExpense', component: ExpenseComponent },
-    { path: 'newexpense', component: NewExpenseComponent },
-    { path: 'newteam', component: NewTeamComponent },
-    { path: '**', component: NotfoundComponent }
+    { path: 'team/:idTeam', component: TeamComponent, canActivate: [authGuard] },
+    { path: 'user/:idUser', component: UserComponent, canActivate: [authGuard] },
+    { path: 'expense/:idExpense', component: ExpenseComponent, canActivate: [authGuard] },
+    { path: 'newexpense', component: NewExpenseComponent, canActivate: [authGuard] },
+    { path: 'newteam', component: NewTeamComponent, canActivate: [authGuard] },
+    { path: '**', component: NotfoundComponent, canActivate: [authGuard] }
 ];
