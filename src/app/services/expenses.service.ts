@@ -58,7 +58,7 @@ getAll(): Promise<IExpense[]> {
   
   add(body: ExpenseBody): Promise<IExpense> {
     return lastValueFrom(
-      this.httpClient.post<IExpense>(`${this.baseUrl}/add`, body)
+      this.httpClient.post<IExpense>(`${this.baseUrl}/create`, body)
     );
   }
   delete(id: number): Promise<void> {
