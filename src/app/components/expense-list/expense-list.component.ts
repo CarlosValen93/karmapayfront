@@ -31,7 +31,6 @@ export class ExpenseListComponent {
       if (event) {
         const result = await this.expensesServices.getByName(event, this.idTeam);
         this.arrExpenses = result
-        console.log(result)
       } else {
         let expenses: IExpense[] = await this.expensesServices.getbyIdGroup(this.idTeam)
         this.arrExpenses = expenses;
