@@ -5,10 +5,31 @@
             <div class="mb-3">
                 <label for="" class="form-label">Título del gasto </label>
                 <input type="text" class="form-control" formControlName="name">
+                @if(checkErrorField('name', 'required')){
+                    <p class="error">El título es obligatorio</p>
+                    }
+                
+                    @if(checkErrorField('name', 'minLength')){
+                    <p class="error">El título debe tener al menos 3 caracteres</p>
+                    }
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Cantidad</label>
                 <input type="text" class="form-control" formControlName="amount">
+                @if(checkErrorField('amount', 'required')){
+                    <p class="error">El campo es obligatorio</p>
+                    }
+                
+                @if(checkErrorField('amount', 'min')){
+                    <p class="error">La cantidad tiene que ser al menos de 50 céntimos</p>
+                    }
+               @if(checkErrorField('amount', 'max')){
+                        <p class="error">El gasto no puede ser mayor de 1 millón de euros</p>
+                        }
+                    
+             @if(checkErrorField('amount', 'pattern')){
+                        <p class="error">Solo puedes añadir números</p>
+                        }
             </div>
        
             <!-- <div class="mb-3">
@@ -16,7 +37,7 @@
                 <input type="text" class="form-control" formControlName="assignation">
             </div> -->
         
-            <input type="submit" value="Crear grupo" class="btn btn-info">
+            <input type="submit" value="Añadir gasto" class="btn btn-info">
         </form>
     </div>
 </div>
