@@ -45,6 +45,8 @@ export class TeamComponent {
     }
   }
 
+
+
   async ngDeleteTeam() {
     try {
       let id: number = Number(this.idTeam);

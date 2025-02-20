@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExpensesService } from '../../services/expenses.service';
 import Swal from 'sweetalert2';
@@ -10,6 +10,9 @@ import Swal from 'sweetalert2';
   styleUrl: './new-expense.component.css'
 })
 export class NewExpenseComponent {
+  @Input() idTeam: number=0;
+
+
   registerForm : FormGroup;
   expensesService = inject(ExpensesService)
    constructor() {
@@ -20,6 +23,7 @@ export class NewExpenseComponent {
        //assignation: new FormControl()
       
 }
+
 async onSubmit() {
   if (this.registerForm.invalid) {
     Swal.fire({
@@ -33,11 +37,15 @@ async onSubmit() {
 
   const expenseBody = {
     name: this.registerForm.value.name,
-    amount: this.registerForm.value.amount
+    amount: this.registerForm.value.amount,
+    teamId: this.idTeam
   };
+console.log(expenseBody);
+  const newExpense = await this.expensesService.add(expenseBody);
+    console.log(newExpense);
 
   try {
-    const newExpense = await this.expensesService.add(expenseBody);
+    
 
     Swal.fire({
       title: '¡Gasto añadido!',
