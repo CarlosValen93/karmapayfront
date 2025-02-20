@@ -1,11 +1,11 @@
 export interface IExpense {
-    Id: number;
+    Id?: number;
     Name: string;
     Amount: number;
     UserIDCreator: number;
     TeamID: number;
-    CreationDate: Date;
-    UpdatedDate: Date;
+    CreationDate?: Date;
+    UpdatedDate?: Date;
 }
 
 

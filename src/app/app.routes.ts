@@ -19,7 +19,7 @@ export const routes: Routes = [
     { path: 'team/:idTeam', component: TeamComponent, canActivate: [authGuard] },
     { path: 'user/:idUser', component: UserComponent, canActivate: [authGuard] },
     { path: 'expense/:idExpense', component: ExpenseComponent, canActivate: [authGuard] },
-    { path: 'newexpense', component: NewExpenseComponent, canActivate: [authGuard] },
+    { path: 'newexpense/:idTeam', component: NewExpenseComponent, canActivate: [authGuard] },
     { path: 'newteam', component: NewTeamComponent, canActivate: [authGuard] },
     { path: 'updateexpenses/:idExpense', component: UpdateExpenseComponent, canActivate: [authGuard] },
     { path: '**', component: NotfoundComponent, canActivate: [authGuard] }

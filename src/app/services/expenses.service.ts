@@ -4,7 +4,7 @@ import { environment } from '../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 
-type ExpenseBody = { name:string, amount: number};
+type ExpenseBody = { name:string, amount: number, teamId: number };
 
 @Injectable({
   providedIn: 'root'
@@ -57,10 +57,14 @@ getAll(): Promise<IExpense[]> {
 
   
   add(body: ExpenseBody): Promise<IExpense> {
+
     return lastValueFrom(
       this.httpClient.post<IExpense>(`${this.baseUrl}/create`, body)
     );
   }
+
+
+
   delete(id: number): Promise<void> {
     return lastValueFrom(
       this.httpClient.delete<void>(`${this.baseUrl}/delete/${id}`)
