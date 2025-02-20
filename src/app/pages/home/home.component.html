@@ -1,3 +1,6 @@
+@if(usersService.isLogged()) {
+<app-team-list></app-team-list>
+}@else {
 <div class="hero">
     <div class="row justify-content-center align-items-center">
         <div class="col-md-6 ">
@@ -13,9 +16,9 @@
                 karmapay, olvidate de los cálculos interminables y los enredos con el dinero.
 
                 <!-- Regístrate gratis, crea un grupo e invita a tus amigos para dividir gastos de manera justa y
-                transparente.
-                Ya sea para compartir los costos de un viaje, los gastos de una casa compartida o cualquier actividad en
-                grupo, karmapay te ayuda a llevar el control de quién debe qué y cuánto ha pagado cada persona.-->
+                    transparente.
+                    Ya sea para compartir los costos de un viaje, los gastos de una casa compartida o cualquier actividad en
+                    grupo, karmapay te ayuda a llevar el control de quién debe qué y cuánto ha pagado cada persona.-->
 
                 ¡Haz que compartir gastos sea fácil y sin estrés! Regístrate ahora y empieza a organizar tus finanzas en
                 grupo.
@@ -24,6 +27,4 @@
     </div>
 </div>
 
-
-
-<app-team-list></app-team-list>
+}

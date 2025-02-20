@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TeamListComponent } from '../../components/team-list/team-list.component';
-import { RouterLink } from '@angular/router';
+
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -10,4 +11,5 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent {
 
+  usersService = inject(UsersService);
 }

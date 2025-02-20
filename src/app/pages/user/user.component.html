@@ -7,24 +7,23 @@
 
         <div class="row">
 
-       <div class="col-xl-4 col-md-6 col-xs-12">
-            <figure>
-                <img src="https://cdn-icons-png.flaticon.com/512/2566/2566170.png" alt="">
-            </figure>
-       </div>
-            
-            
-        <div class="col-xl-8 col-md-6 col-xs-12">
-            <h3 class="pb-3">{{user.Username}}</h3>
-            <p><strong>Mail:</strong> {{user.Mail}}</p>
-            <p><strong>Password:</strong> {{user.Password}}</p>
-            <button class="btn btn-danger m-2" (click)="ngChangeInfo()">Modificar info</button>
-            <button class="btn btn-danger m-2" (click)="ngOnLogOut()">Log Out</button>
-            <button class="btn btn-danger" (click)="goBack()">Volver al grupo</button>
+            <div class="col-xl-4 col-md-6 col-xs-12">
+                <figure>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2566/2566170.png" alt="">
+                </figure>
+            </div>
+
+
+            <div class="col-xl-8 col-md-6 col-xs-12">
+                <h3 class="pb-3">{{user.Username}}</h3>
+                <p><strong>Mail:</strong> {{user.Mail}}</p>
+                <button class="btn btn-danger m-2" (click)="ngChangeInfo()">Modificar info</button>
+                <button class="btn btn-danger m-2" (click)="ngOnLogOut()">Log Out</button>
+                <button class="btn btn-danger" (click)="goBack()">Volver atrás</button>
+            </div>
+
         </div>
 
-    </div>
-            
 
     </div>
 

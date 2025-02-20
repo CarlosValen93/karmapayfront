@@ -8,10 +8,15 @@ figure {
 }
 
 img {
-    max-width: 60%;
+    max-width: 75%;
 }
 
 a {
     font-size: 1rem;
-    color: var(--primary-color)
+    color: var(--primary-color);
+
+    i {
+        font-size: 1.8rem;
+    }
+
 }
