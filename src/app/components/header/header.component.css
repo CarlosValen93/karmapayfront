@@ -14,7 +14,7 @@ img {
 a {
     font-size: 1rem;
     color: var(--primary-color);
-
+    cursor: pointer;
     i {
         font-size: 1.8rem;
     }

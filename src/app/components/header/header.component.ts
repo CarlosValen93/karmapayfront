@@ -16,12 +16,17 @@ export class HeaderComponent {
 
   usersService = inject(UsersService);
   userId!: number;
+  mail: string = ""
 
-
-  ngOnInit() {
+  async ngOnInit() {
     const token = localStorage.getItem(environment.tokenName)!;
     const payload = jwtDecode<CustomPayload>(token);
     this.userId = payload.userId;
+    const user = await this.usersService.getById(this.userId)
+    this.mail = user?.Mail!
 
+  }
+  async logout() {
+    await this.usersService.logout()
   }
 }

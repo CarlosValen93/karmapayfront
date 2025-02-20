@@ -16,7 +16,11 @@
                     <a class="nav-link" [routerLink]="['/newteam']"><i class="fa-solid fa-circle-plus"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/user/',userId]"> <i class="fa-solid fa-circle-user"></i></a>
+                    <a class="nav-link" [routerLink]="['/user/',userId]" [title]="mail"> <i
+                            class="fa-solid fa-circle-user"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="logout()">Logout</a>
                 </li>
                 }@else {
                 <li class="nav-item">
