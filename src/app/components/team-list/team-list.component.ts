@@ -20,7 +20,7 @@ export class TeamListComponent {
     try {
       let response: ITeam[] = await this.teamsService.getAll();
       this.arrTeams = response;
-      console.log(this.arrTeams);
+
     }
 
     catch (err) {
@@ -33,7 +33,7 @@ export class TeamListComponent {
     try {
       const result = await this.teamsService.getByCategory(event);
       this.arrTeams = result;
-      console.log(result);
+
     } catch (err) {
       console.log(err);
     }

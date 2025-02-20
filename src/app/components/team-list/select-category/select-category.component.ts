@@ -17,7 +17,7 @@ export class SelectCategoryComponent {
 
   ngOnInit() {
     this.categories = this.teamsService.getAllCategories();
-    console.log(this.categories);
+
 
   }
 

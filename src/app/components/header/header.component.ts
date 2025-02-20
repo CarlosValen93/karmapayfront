@@ -22,6 +22,6 @@ export class HeaderComponent {
     const token = localStorage.getItem(environment.tokenName)!;
     const payload = jwtDecode<CustomPayload>(token);
     this.userId = payload.userId;
-    console.log(this.userId);
+
   }
 }
