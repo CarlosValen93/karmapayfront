@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { category, ITeam } from '../interface/team.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../environments/environment.development';
-type UserBody = { Name?: string, Description: string, Category: string, Img: string };
+type TeamBody = { name: string, description: string, category: string, img: string };
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class TeamsService {
     });
   }
 
-  updateById(id: number, body: Partial<UserBody>): Promise<ITeam> {
+  updateById(id: number, body: Partial<TeamBody>): Promise<ITeam> {
     if (Object.keys(body).length === 0) {
       return Promise.reject(new Error("No has actualizado ningún campo"));
     }
@@ -49,7 +49,7 @@ export class TeamsService {
   }
 
 
-  createTeam(body: UserBody) {
+  add(body: TeamBody) {
     return firstValueFrom(
       this.httpClient.post<ITeam>(`${this.baseUrl}/create`, body)
     )
