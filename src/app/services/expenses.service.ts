@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { IExpense } from '../interface/expense.interface';
 import { environment } from '../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
-import { lastValueFrom } from 'rxjs';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 
 type ExpenseBody = { name:string, amount: number, teamId: number };
 
@@ -65,11 +65,13 @@ getAll(): Promise<IExpense[]> {
 
 
 
-  delete(id: number): Promise<void> {
-    return lastValueFrom(
-      this.httpClient.delete<void>(`${this.baseUrl}/delete/${id}`)
+  deleteExpense(id: number) {
+    return firstValueFrom(
+      this.httpClient.delete(`${this.baseUrl}/${id}`)
     );
   }
+
+
   update(id: number, body: Partial<ExpenseBody>): Promise<IExpense> {
     if (Object.keys(body).length === 0) {
       return Promise.reject(new Error("No has actualizado ningún campo"));

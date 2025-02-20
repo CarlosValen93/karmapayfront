@@ -45,13 +45,13 @@ export class ExpenseComponent {
   async ngDeleteExpense() {
     try {
       let id: number = Number(this.idExpense);
-      let response = await this.expensesService.delete(id);
+      let response = await this.expensesService.deleteExpense(id);
       Swal.fire({
         icon: "success",
         title: "Borrado!",
         text: "El gasto ha sido borrado",
       });
-        this.router.navigate(['/team/:idTeam']);
+      this.location.back();
     } catch (error) {
       Swal.fire({
        icon: "error",
