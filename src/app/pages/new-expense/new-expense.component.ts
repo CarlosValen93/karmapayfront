@@ -2,6 +2,8 @@ import { Component, inject, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExpensesService } from '../../services/expenses.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-new-expense',
@@ -11,6 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class NewExpenseComponent {
   @Input() idTeam: number=0;
+  router = inject(Router);
+  location = inject(Location);
 
 
   registerForm : FormGroup;
@@ -35,18 +39,15 @@ async onSubmit() {
       return;
   }
 
-
   const expenseBody = {
     name: this.registerForm.value.name,
     amount: this.registerForm.value.amount,
     teamId: this.idTeam
   };
 console.log(expenseBody);
-  const newExpense = await this.expensesService.add(expenseBody);
-    console.log(newExpense);
 
   try {
-      const newExpense = await this.expensesService.add(expenseBody);
+      await this.expensesService.add(expenseBody);
 
       Swal.fire({
           title: '¡Gasto agregado!',
@@ -56,6 +57,8 @@ console.log(expenseBody);
       });
 
       this.registerForm.reset();
+      this.router.navigate(['/team/' + this.idTeam]);
+
    } catch (error: any) {
     console.error(error);
 
@@ -70,10 +73,13 @@ console.log(expenseBody);
 
 
 
-
 checkErrorField(field: string, error: string): boolean {
   const control = this.registerForm.get(field);
   return control ? control.hasError(error) && control.touched : false;
+}
+
+goBack() {
+  this.location.back();
 }
 
 }
