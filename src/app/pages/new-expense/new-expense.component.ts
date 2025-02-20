@@ -35,24 +35,6 @@ async onSubmit() {
       return;
   }
 
-  
-  const UserIDCreator = localStorage.getItem('UserIDCreator'); 
-  const TeamID = localStorage.getItem('TeamID'); 
-
-  if (!UserIDCreator || !TeamID) {
-      Swal.fire({
-          title: 'Error',
-          text: 'No se encontró información del usuario o del equipo. Por favor, inicia sesión de nuevo.',
-          icon: 'error',
-          confirmButtonText: 'Cerrar'
-      });
-      return;
-  }
-
-
-  const userID = Number(UserIDCreator);
-  const teamID = Number(TeamID);
-
 
   const expenseBody = {
     name: this.registerForm.value.name,
