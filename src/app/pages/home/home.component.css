@@ -1,9 +1,36 @@
+.home {
+    background: none;
+
+}
+
 .hero {
     max-width: 1600px;
     height: auto;
 
 }
 
-/* .info {
-    margin-right: 10rem;
-} */
+
+@media(width >=992px) {
+    .home {
+        background-image: url("/images/illustration2-02.png");
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: calc(100% - 2.5rem) center;
+    }
+}
+
+
+
+@media(width >=1200px) {
+    .home {
+
+        background-position: calc(100% - 5rem) center;
+    }
+}
+
+@media(width >=1400px) {
+    .home {
+
+        background-position: calc(100% - 7.5rem) center;
+    }
+}

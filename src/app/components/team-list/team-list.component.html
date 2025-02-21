@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container ">
     <section class=" row">
-        <div class="col-md-6">
+        <div class="color col-lg-6  shadow-sm">
+            <h3>Tus grupos</h3>
             <app-select-category (selectCategory)="selectCategory($event)"></app-select-category>
             <div>
                 @for (team of arrTeams; track team.Id) {
@@ -13,7 +14,7 @@
 
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-6">
 
         </div>
 

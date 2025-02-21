@@ -4,11 +4,12 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 import { jwtDecode } from 'jwt-decode';
+import { ButtonComponent } from "../button/button.component";
 
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, ButtonComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
