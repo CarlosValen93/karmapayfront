@@ -1,6 +1,7 @@
 <div class="page-background">
     <div class="form-box col-12 col-lg-6 offset-0 offset-lg-3">
-        <h1 class="text-center">Nuevo Grupo</h1>
+        <button title="volver atrás" (click)="goBack()"> <i class="fas fa-arrow-left"></i></button> 
+        <h1 class="text-center">Nuevo Grupo</h1>  
  
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
@@ -45,8 +46,14 @@
                 <input type="url" class="form-control" formControlName="image" >
             </div>
         
-            <input type="submit" value="Crear grupo" class="btn btn-info">
+            <app-button 
+            type="submit" 
+            class="mt-2"
+            text="Crear grupo">Crear grupo
+          </app-button>
+          
         </form>
-        <button  class="btn btn-info mt-3 " (click)="goBack()">Volver atrás</button>
+      
     </div>
 </div>
+
