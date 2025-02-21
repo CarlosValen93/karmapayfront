@@ -1,0 +1,33 @@
+<p>update-profile works!</p>
+<div class="row mt-5">
+    <div class="col-12 col-lg-6 offset-0 offset-lg-3">
+        <h1>Modificar Perfil</h1>
+        <form [formGroup]="UpdateForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="" class="form-label">Nuevo Username</label>
+                <input type="text" class="form-control" formControlName="username">
+                @if(checkErrorField('username', 'minlength')){
+                    <p class="error">El Username debe tener una longitud mínima de 6 caracteres</p>
+                    }
+                    @if(checkErrorField('username', 'maxlength')){
+                        <p class="error">El Username debe tener una longitud máxima de 20 caracteres</p>
+                        }
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Mail</label>
+                <input type="text" class="form-control" formControlName="mail">
+                @if(checkErrorField('mail', 'pattern')){
+                    <p class="error">El email tiene que ser correcto</p>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Foto</label>
+                <input type="text" class="form-control" formControlName="img">
+            </div>
+       
+            
+        
+            <input type="submit" value="Modificar Gasto" class="btn btn-info">
+        </form>
+    </div>
+</div>
