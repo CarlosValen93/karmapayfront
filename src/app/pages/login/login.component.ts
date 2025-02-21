@@ -59,8 +59,12 @@ export class LoginComponent {
     }
   }
   checkErrorField(field: string, error: string): boolean {
-    return this.loginForm.get(field)?.hasError(error) && this.loginForm.get(field)?.touched ? true : false;
+    if (this.loginForm.get(field)?.hasError(error) && this.loginForm.get(field)?.touched) {
+      return true;
+    }
+    return false;
   }
+  
 
 
 
