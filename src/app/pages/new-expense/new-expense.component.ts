@@ -23,8 +23,9 @@ export class NewExpenseComponent {
   arrUsersTeam: IUser[] = []
   constructor() {
     this.registerForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      amount: new FormControl('', [Validators.required, Validators.min(0.5), Validators.max(1000000), Validators.pattern("^[0-9]*$")]),
+      name: new FormControl('', [ Validators.minLength(3)]),
+      amount: new FormControl('', [Validators.required, Validators.min(0.5), Validators.max(1000000), Validators.pattern("^[0-9]+(\.[0-9]{1,2})?$")
+      ]),
       assignations: new FormArray<FormGroup>([])
     });
     //assignation: new FormControl()
@@ -92,9 +93,12 @@ export class NewExpenseComponent {
 
 
 
+
   checkErrorField(field: string, error: string): boolean {
-    const control = this.registerForm.get(field);
-    return control ? control.hasError(error) && control.touched : false;
+    if (this.registerForm.get(field)?.hasError(error) && this.registerForm.get(field)?.touched) {
+      return true;
+    }
+    return false;
   }
 
   goBack() {

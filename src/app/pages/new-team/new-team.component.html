@@ -5,10 +5,25 @@
             <div class="mb-3">
                 <label for="" class="form-label">Nombre del grupo</label>
                 <input type="text" class="form-control" formControlName="name">
+           
+    
+                    @if(checkErrorField('name', 'required')){
+                    <p class="error">Debes rellenar este campo</p>
+                    }
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Descripción</label>
-                <input type="text" class="form-control" formControlName="description">
+                <input type="text" class="form-control" formControlName="description" placeholder="(Descripción entre 3-100 caracteres)">
+                @if(checkErrorField('description', 'required')){
+                    <p class="error">Debes poner una descripción del grupo entre 3 y 100 carac</p>
+                    }
+                 @if(checkErrorField('description', 'minlength')){
+                        <p class="error">La descripción debe tener al menos 3 caracteres</p>
+                        }
+                 @if(checkErrorField('description', 'maxlength')){
+                            <p class="error">La descripción no puede tener mas de 100 caracteres</p>
+                            }
+  
             </div>
             <div class="mb-3">
                 <label for="category" class="form-label">Categoría</label>
@@ -18,6 +33,10 @@
                     <option value="Transporte">Transporte</option>
                     <option value="Compras">Compras</option>
                 </select>
+                @if(checkErrorField('category', 'required')){
+                    <p class="error">Debes elegir una categoría</p>
+                }
+                
             </div>
 
             <div class="mb-3">
