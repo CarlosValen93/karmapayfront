@@ -3,6 +3,8 @@ import { IUser } from '../interface/user.interface';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { environment } from '../environments/environment.development';
+import { jwtDecode } from 'jwt-decode';
+import { CustomPayload } from '../guards/auth.guard';
 
 type UserBody = { username: string, email: string, password: string, img?: string };
 type RegisterResponse = { success: string, user: IUser };
@@ -76,5 +78,13 @@ export class UsersService {
         return lastValueFrom(
             this.httpClient.put<IUser>(`${this.baseUrl}/update/${id}`, body)
         );
+    }
+    ItsMe(id: number) {
+        const token = localStorage.getItem(environment.tokenName)!;
+        const payload = jwtDecode<CustomPayload>(token);
+        if (payload.userId !== id) {
+            return false;
+        }
+        return true;
     }
 }

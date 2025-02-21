@@ -5,10 +5,11 @@ import Swal from 'sweetalert2';
 import { category } from '../../interface/team.interface';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { ButtonComponent } from "../../components/button/button.component";
 
 @Component({
   selector: 'app-new-team',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ButtonComponent],
   templateUrl: './new-team.component.html',
   styleUrl: './new-team.component.css'
 })
