@@ -1,4 +1,4 @@
-<select class="form-select mb-4" (change)="getByCategory($event)">
+<select class="style form-select mb-4" (change)="getByCategory($event)">
     <option value="">Selecciona una categoria</option>
     @for(category of categories; track category){
     <option [value]="category">{{category}}</option>

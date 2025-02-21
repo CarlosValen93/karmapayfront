@@ -3,8 +3,8 @@
 <app-user-search (busquedaEmitida)="searchByUsername($event)"></app-user-search>
 
 <div class="row">
-@for( user of arrUsers; track user.Id) {
-  <article class="col-xl-6 col-lg-4 col-md-6 col-xs-6 g-3">
+  @for( user of arrUsers; track user.Id) {
+  <article class="col-xl-6 col-lg-6 col-md-6 col-xs-6 g-3">
     <app-user-card [miUser]="user"></app-user-card>
   </article>
   }@empty {

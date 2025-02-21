@@ -1,3 +1,9 @@
 .pointer {
     cursor: pointer;
 }
+
+.bordes {
+    border-radius: 2rem;
+
+
+}
