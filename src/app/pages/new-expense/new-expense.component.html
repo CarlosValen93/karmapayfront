@@ -32,16 +32,23 @@
                 }
             </div>
 
-            <!-- <div formArrayName="assignations">
+            @if(arrUsersTeam){
+
+            <div formArrayName="assignations">
                 @for(assignationForm of assignations.controls; track $index){
-
-                <div class="mb-3" [formGroup]="assignationForm">
-
-                    <label for="" class="form-label">Asignación por integrante </label>
-                    <input type="text" class="form-control" formControlName="Username">
+                <div [formGroupName]="$index">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nombre integrante </label>
+                        <input type="text" class="form-control" formControlName="Username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Asignación por integrante </label>
+                        <input type="text" class="form-control" formControlName="Assignation">
+                    </div>
                 </div>
                 }
-            </div> -->
+            </div>
+            }
 
 
 
