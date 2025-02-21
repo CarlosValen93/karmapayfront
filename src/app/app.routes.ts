@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { authGuard } from './guards/auth.guard';
 import { UpdateExpenseComponent } from './pages/expense/update-expense/update-expense.component';
+import { UpdateProfileComponent } from './pages/user/update-profile/update-profile.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -22,5 +23,6 @@ export const routes: Routes = [
     { path: 'newexpense', component: NewExpenseComponent, canActivate: [authGuard] },
     { path: 'newteam', component: NewTeamComponent, canActivate: [authGuard] },
     { path: 'updateexpenses/:idExpense', component: UpdateExpenseComponent, canActivate: [authGuard] },
+    { path: 'updateprofile/:idUser', component: UpdateProfileComponent, canActivate: [authGuard] },
     { path: '**', component: NotfoundComponent, canActivate: [authGuard] }
 ];
