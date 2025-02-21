@@ -45,13 +45,11 @@
                         <label for="" class="form-label">Asignación por integrante </label>
                         <input type="text" class="form-control" formControlName="Assignation">
                     </div>
+                    <input type="hidden" formControlName="UserId">
                 </div>
                 }
             </div>
             }
-
-
-
             <input type="submit" value="Añadir gasto" class="btn btn-info">
         </form>
         <button class="btn btn-info mt-3" (click)="goBack()">Volver atrás</button>

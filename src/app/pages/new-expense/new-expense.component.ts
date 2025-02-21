@@ -36,7 +36,8 @@ export class NewExpenseComponent {
     for (let user of this.arrUsersTeam) {
       const assignationUser = new FormGroup({
         Username: new FormControl(user.Username),
-        Assignation: new FormControl()
+        Assignation: new FormControl(),
+        UserId: new FormControl(user.Id)
       });
       this.assignations.push(assignationUser)
     }
@@ -61,7 +62,8 @@ export class NewExpenseComponent {
     const expenseBody = {
       name: this.registerForm.value.name,
       amount: this.registerForm.value.amount,
-      teamId: this.idTeam
+      teamId: this.idTeam,
+      assignations: this.registerForm.value.assignations
     };
     console.log(expenseBody);
 
