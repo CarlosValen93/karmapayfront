@@ -18,8 +18,10 @@
             </div>
             <div class="col-xl-2 col-md-3 col-xs-12 p-3 pt-3">
                  <div class="d-flex flex-column">
-                    <button class="btn btn-danger mb-2" (click)="ngChangeInfo()">Modificar info</button>
-                    <button class="btn btn-danger mb-2" (click)="ngDeleteTeam()">Borrar Grupo</button>
+                    @if(isOwner){
+                        <button class="btn btn-danger mb-2" (click)="ngChangeInfo()">Modificar info</button>
+                        <button class="btn btn-danger mb-2" (click)="ngDeleteTeam()">Borrar Grupo</button>
+                    }
                     <button class="btn btn-danger" [routerLink]="['/home']">Volver a la Home</button>
                 </div>
             </div>

@@ -5,6 +5,7 @@ import { UserListComponent } from "../../components/user-list/user-list.componen
 import { ITeam } from '../../interface/team.interface';
 import { TeamsService } from '../../services/teams.service';
 import Swal from 'sweetalert2';
+import { Observable, from } from 'rxjs';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class TeamComponent {
   teamsService=inject(TeamsService);
   router =inject(Router);
   team!: ITeam
-
+  isOwner: Observable<boolean> = new Observable<boolean>();
 
 
   async ngOnInit() {
@@ -43,6 +44,7 @@ export class TeamComponent {
        // });
        // this.router.navigate(['/home']);
     }
+    this.isOwner = from(this.teamsService.isOwner(this.idTeam));
   }
 
 
