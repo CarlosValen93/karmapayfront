@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TeamsService } from '../../services/teams.service';
 import Swal from 'sweetalert2';
 import { category } from '../../interface/team.interface';
@@ -19,10 +19,16 @@ export class NewTeamComponent {
   location = inject(Location);
    constructor() {
       this.registerForm = new FormGroup({
-       name: new FormControl(),
-      description: new FormControl(),
+       name: new FormControl('', [ Validators.required]),
+      description: new FormControl('',
+        
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(100)
+        ]),
        image: new FormControl(),
-       category: new FormControl()
+       category: new FormControl('',[Validators.required])
        })
 }
 async onSubmit() {
@@ -72,4 +78,16 @@ goBack() {
   this.location.back();
 }
 
+
+checkErrorField(field: string, error: string): boolean {
+  if (this.registerForm.get(field)?.hasError(error) && this.registerForm.get(field)?.touched) {
+    return true;
+  }
+  return false;
 }
+
+
+
+}
+
+

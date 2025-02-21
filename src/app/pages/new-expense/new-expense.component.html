@@ -5,12 +5,9 @@
             <div class="mb-3">
                 <label for="" class="form-label">Título del gasto </label>
                 <input type="text" class="form-control" formControlName="name">
-                @if(checkErrorField('name', 'required')){
-                <p class="error">El título es obligatorio</p>
-                }
-
-                @if(checkErrorField('name', 'minLength')){
-                <p class="error">El título debe tener al menos 3 caracteres</p>
+           
+                @if(checkErrorField('name', 'minlength')){
+                <p class="error">El título es obligatorio y debe tener al menos 3 caracteres</p>
                 }
             </div>
             <div class="mb-3">
