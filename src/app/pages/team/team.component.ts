@@ -14,9 +14,9 @@ import Swal from 'sweetalert2';
   styleUrl: './team.component.css'
 })
 export class TeamComponent {
-  @Input() idTeam: number=0;
-  teamsService=inject(TeamsService);
-  router =inject(Router);
+  @Input() idTeam: number = 0;
+  teamsService = inject(TeamsService);
+  router = inject(Router);
   team!: ITeam
 
 
@@ -25,8 +25,9 @@ export class TeamComponent {
     try {
       let id: number = Number(this.idTeam);
       let response = await this.teamsService.getById(id);
+      console.log(response)
       if (response) {
-        this.team = response;
+        this.team = response.team;
       } else {
         Swal.fire({
           icon: "error",
@@ -37,11 +38,11 @@ export class TeamComponent {
       }
     } catch (error) {
       //  Swal.fire({
-       //   icon: "error",
-       //   title: "Oops...",
-       //   text: "Error al obtener el grupo",
-       // });
-       // this.router.navigate(['/home']);
+      //   icon: "error",
+      //   title: "Oops...",
+      //   text: "Error al obtener el grupo",
+      // });
+      // this.router.navigate(['/home']);
     }
   }
 
@@ -56,7 +57,7 @@ export class TeamComponent {
         title: "Borrado!",
         text: "El grupo ha sido borrado",
       });
-        this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -66,7 +67,7 @@ export class TeamComponent {
     }
   }
 
-  ngChangeInfo(){
+  ngChangeInfo() {
   }
 
 

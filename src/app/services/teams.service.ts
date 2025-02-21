@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { category, ITeam } from '../interface/team.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../environments/environment.development';
+import { IExpense } from '../interface/expense.interface';
 type TeamBody = { name: string, description: string, category: string, img: string };
 
 @Injectable({
@@ -25,7 +26,7 @@ export class TeamsService {
   }
   getById(id: number) {
     return firstValueFrom(
-      this.httpClient.get<ITeam | null>(`${this.baseUrl}/${id}`)
+      this.httpClient.get<{ team: ITeam, expenses: IExpense[] }>(`${this.baseUrl}/${id}`)
     ).then(team => {
       if (!team) {
         throw new Error(`ID ${id} no encontrado`);
