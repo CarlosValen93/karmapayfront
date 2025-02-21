@@ -3,6 +3,8 @@ import { IExpense } from '../interface/expense.interface';
 import { environment } from '../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
+import { CustomPayload } from '../guards/auth.guard';
 
 type ExpenseBody = { name: string, amount: number, teamId: number, assignations: any[] };
 
@@ -84,5 +86,13 @@ export class ExpensesService {
     return lastValueFrom(
       this.httpClient.get<IExpense[]>(`${this.baseUrl}/team/${id}`)
     );
+  }
+  isCreator(id:number){
+    const token = localStorage.getItem(environment.tokenName)!;
+    const payload = jwtDecode<CustomPayload>(token);
+    if (payload.userId !== id) {
+      return false;
+    }
+    return true;
   }
 }

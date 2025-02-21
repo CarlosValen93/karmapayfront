@@ -18,8 +18,10 @@
                 <h3 class="pb-3">{{user.Username}}</h3>
                 <p><strong>Mail:</strong> {{user.Mail}}</p>
                 <p><strong>Password:</strong> {{user.Password}}</p>
-                <button class="btn btn-danger m-2" [routerLink]="['/updateprofile', user.Id]">Modificar info</button>
-                <button class="btn btn-danger m-2" (click)="ngOnLogOut()">Log Out</button>
+                @if(usersService.ItsMe(user.Id)){
+                    <button class="btn btn-danger m-2" [routerLink]="['/updateprofile', user.Id]">Modificar info</button>
+                    <button class="btn btn-danger m-2" (click)="ngOnLogOut()">Log Out</button>
+                }
                 <button class="btn btn-danger" (click)="goBack()">Volver al grupo</button>
             </div>
         </div>  

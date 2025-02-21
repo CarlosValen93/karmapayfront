@@ -3,6 +3,8 @@ import { inject, Injectable } from '@angular/core';
 import { category, ITeam } from '../interface/team.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../environments/environment.development';
+import { jwtDecode } from 'jwt-decode';
+import { CustomPayload } from '../guards/auth.guard';
 type TeamBody = { name: string, description: string, category: string, img: string };
 
 @Injectable({
@@ -72,5 +74,19 @@ export class TeamsService {
     return firstValueFrom(
       this.httpClient.get<ITeam[]>(`${this.baseUrl}/category/${category}`)
     )
+  }
+  getOwner(id: number) : Promise<number> {
+    return firstValueFrom(
+      this.httpClient.get<number>(`${this.baseUrl}/owner/${id}`)
+    )
+  }
+  async isOwner(id: number) {
+    const token = localStorage.getItem(environment.tokenName);
+    const payload = jwtDecode<CustomPayload>(token!);
+    const idOwner = await this.getOwner(id);
+    if (payload.userId !== idOwner) {
+      return false;
+    }
+    return true;
   }
 }

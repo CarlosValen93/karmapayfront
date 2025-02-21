@@ -11,8 +11,10 @@
         <p><strong>Grupo:</strong> grupo al que pertenece</p>
         <p><strong>Creador:</strong> creador del gasto</p>
         <p><strong>Asignación:</strong> % asignado del gasto</p>
-        <button class="btn btn-danger m-2" [routerLink]="['/updateexpenses',idExpense]">Modificar</button>
-        <button class="btn btn-danger m-2" (click)="ngDeleteExpense()">Borrar</button>
+        @if(expensesService.isCreator(idExpense)){
+          <button class="btn btn-danger m-2" [routerLink]="['/updateexpenses',idExpense]">Modificar</button>
+          <button class="btn btn-danger m-2" (click)="ngDeleteExpense()">Borrar</button>
+        } 
         <button class="btn btn-danger" (click)="goBack()">Volver al grupo</button>
       </div>
     </div>
