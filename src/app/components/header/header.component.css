@@ -15,22 +15,8 @@ a {
     font-size: 1rem;
     color: var(--primary-color);
     cursor: pointer;
-
     i {
         font-size: 1.8rem;
-    }
-
-}
-
-.hamburguer {
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-}
-
-@media(width >=992px) {
-    .hamburguer {
-        margin: 0rem;
-
     }
 
 }

@@ -3,14 +3,9 @@
 
 }
 
-img {
-    width: 100%;
-}
-
 .hero {
-    width: 100vw;
+    max-width: 1600px;
     height: auto;
-    background: none;
 
 }
 
@@ -22,13 +17,6 @@ img {
         background-size: auto;
         background-position: calc(100% - 2.5rem) center;
     }
-
-    /*     .hero {
-        background-image: url("/images/homeIllustration.png");
-        background-repeat: no-repeat;
-        background-size: auto;
-
-    } */
 }
 
 

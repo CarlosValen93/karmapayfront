@@ -38,9 +38,3 @@ body {
     color: var(--primary-color);
     background-color: #f8f9fa;
 }
-
-img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
