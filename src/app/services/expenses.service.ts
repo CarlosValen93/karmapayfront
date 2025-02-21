@@ -4,58 +4,58 @@ import { environment } from '../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
 
-type ExpenseBody = { name:string, amount: number, teamId: number };
+type ExpenseBody = { name: string, amount: number, teamId: number, assignations: any[] };
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExpensesService {
-//     private expenselist: IExpense[] = EXPENSES;
-//   constructor() {
+  //     private expenselist: IExpense[] = EXPENSES;
+  //   constructor() {
 
-//    }
-//   getAll(): IExpense[] {
-//     return this.expenselist;
-// }
-// getbyID(id: number): IExpense {
-//     const expense = this.expenselist.find(expense => expense.Id === id);
-//     if (!expense) {
-//         throw new Error(`Expense with id ${id} not found`);
-//     }
-//     return expense;
-// }
-// add(expense: IExpense): void {
-//     this.expenselist.push(expense);
-// }
-private baseUrl = `${environment.apiUrl}/api/expenses`;
-private httpClient = inject(HttpClient);
-constructor() { }
+  //    }
+  //   getAll(): IExpense[] {
+  //     return this.expenselist;
+  // }
+  // getbyID(id: number): IExpense {
+  //     const expense = this.expenselist.find(expense => expense.Id === id);
+  //     if (!expense) {
+  //         throw new Error(`Expense with id ${id} not found`);
+  //     }
+  //     return expense;
+  // }
+  // add(expense: IExpense): void {
+  //     this.expenselist.push(expense);
+  // }
+  private baseUrl = `${environment.apiUrl}/api/expenses`;
+  private httpClient = inject(HttpClient);
+  constructor() { }
 
-getAll(): Promise<IExpense[]> {
-     return lastValueFrom(
-       this.httpClient.get<IExpense[]>(this.baseUrl)
-     );
-   }
-   getById(id: number): Promise<IExpense | null> {
-     const expense = lastValueFrom(
-       this.httpClient.get<IExpense | null>(`${this.baseUrl}/${id}`)
-     );
-     if (!expense) {
-       throw new Error(`Expense with id ${id} not found`);
-     }
-     return expense;
-   }
-   getByName(name : string, teamid:number): Promise<IExpense []> {
-       const result = lastValueFrom(
-         this.httpClient.get<IExpense  []>(`${this.baseUrl}/name/${name}/${teamid}`)
-       );
-        return result
+  getAll(): Promise<IExpense[]> {
+    return lastValueFrom(
+      this.httpClient.get<IExpense[]>(this.baseUrl)
+    );
+  }
+  getById(id: number): Promise<IExpense | null> {
+    const expense = lastValueFrom(
+      this.httpClient.get<IExpense | null>(`${this.baseUrl}/${id}`)
+    );
+    if (!expense) {
+      throw new Error(`Expense with id ${id} not found`);
+    }
+    return expense;
+  }
+  getByName(name: string, teamid: number): Promise<IExpense[]> {
+    const result = lastValueFrom(
+      this.httpClient.get<IExpense[]>(`${this.baseUrl}/name/${name}/${teamid}`)
+    );
+    return result
 
-       
+
   }
 
 
-  
+
   add(body: ExpenseBody): Promise<IExpense> {
 
     return lastValueFrom(
