@@ -5,29 +5,43 @@
                 <img src="/images/karmapayLogo.png" alt="karmapayLogo" class="img-fluid">
             </figure>
         </a>
+
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
+
             <ul class="navbar-nav ms-auto align-items-center">
                 @if(usersService.isLogged()){
-                <li class="nav-item">
+
+                <li class="nav-item d-none d-lg-block">
                     <app-button [routerLink]="['/newteam']"> Nuevo grupo </app-button>
-
-
                 </li>
+
+                <li class="nav-item d-lg-none mt-5 mb-3">
+                    <a class="nav-link" aria-current="page" [routerLink]="['/newteam']">Crear nuevo
+                        grupo </a>
+                </li>
+
+                <li class="nav-item d-lg-none mb-3" [routerLink]="['/user/',userId]"> Perfil</li>
+                <li class="nav-item  d-none d-lg-block">
+
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/user/',userId]" [title]="mail"> <i
                             class="fa-solid fa-circle-user"></i></a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" (click)="logout()">Logout</a>
                 </li>
+
                 }@else {
-                <li class="nav-item">
+                <li class="nav-item hamburguer">
                     <a class="nav-link" aria-current="page" [routerLink]="['home/register']">Registro</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['home/login']">Login</a>
                 </li>

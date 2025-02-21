@@ -3,9 +3,16 @@
 
 }
 
+img {
+    width: 100%;
+}
+
 .hero {
-    max-width: 1600px;
+    width: 100vw;
     height: auto;
+    background: none;
+
+
 
 }
 
