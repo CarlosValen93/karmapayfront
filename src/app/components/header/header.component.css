@@ -15,6 +15,7 @@ a {
     font-size: 1.1rem;
     color: var(--fourth-color);
     cursor: pointer;
+    margin-left: 1rem;
 
     i {
         font-size: 1.8rem;
