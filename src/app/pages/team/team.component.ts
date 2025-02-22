@@ -26,7 +26,7 @@ export class TeamComponent {
     try {
       let id: number = Number(this.idTeam);
       let response = await this.teamsService.getById(id);
-      console.log(response)
+
       if (response) {
         this.team = response.team;
       } else {

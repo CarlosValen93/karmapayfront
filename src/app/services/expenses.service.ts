@@ -38,6 +38,7 @@ export class ExpensesService {
       this.httpClient.get<IExpense[]>(this.baseUrl)
     );
   }
+
   getById(id: number): Promise<IExpense | null> {
     const expense = lastValueFrom(
       this.httpClient.get<IExpense | null>(`${this.baseUrl}/${id}`)
@@ -47,6 +48,7 @@ export class ExpensesService {
     }
     return expense;
   }
+
   getByName(name: string, teamid: number): Promise<IExpense[]> {
     const result = lastValueFrom(
       this.httpClient.get<IExpense[]>(`${this.baseUrl}/name/${name}/${teamid}`)
@@ -56,7 +58,11 @@ export class ExpensesService {
 
   }
 
-
+  getDebtByUserTeam(teamId: number, userId: number): Promise<any> {
+    const result = lastValueFrom(this.httpClient.get<any>(`${this.baseUrl}/getDebt/${teamId}/${userId}`)
+    );
+    return result
+  }
 
   add(body: ExpenseBody): Promise<IExpense> {
 
@@ -87,7 +93,7 @@ export class ExpensesService {
       this.httpClient.get<IExpense[]>(`${this.baseUrl}/team/${id}`)
     );
   }
-  isCreator(id:number){
+  isCreator(id: number) {
     const token = localStorage.getItem(environment.tokenName)!;
     const payload = jwtDecode<CustomPayload>(token);
     if (payload.userId !== id) {

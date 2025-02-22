@@ -1,11 +1,11 @@
-<div class="card p-3 shadow-sm2"> 
+<div class="card p-3 shadow-sm2">
     <div class="d-flex align-items-center justify-content-between">
         <figure>
             <img src="https://cdn-icons-png.flaticon.com/512/2566/2566170.png" alt="">
         </figure>
-        <div>
+        <div class="ms-3">
             <p><strong>{{miUser.Username}}</strong></p>
-            <p>Subtotal €€€</p>
+            <p>Subtotal: {{debt}}€</p>
             <button class="btn btn-sm btn-danger" [routerLink]="['/user', miUser.Id]">Ver detalle</button>
         </div>
     </div>
