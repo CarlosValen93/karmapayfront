@@ -1,47 +1,66 @@
-<div class="row mt-5">
-    <div class="col-12 col-lg-6 offset-0 offset-lg-3">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-                <label for="" class="form-label">Username</label>
-                <input type="text" class="form-control" formControlName="username">
-                @if(checkErrorField('username', 'required')){
-                    <p class="error">El campo es obligatorio</p>
-                    }
-                    @if(checkErrorField('username', 'minlength')){
-                    <p class="error">El Username debe tener una longitud mínima de 6 caracteres</p>
-                    }
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label">Correo electrónico</label>
-                <input type="text" class="form-control" formControlName="mail">
-                @if(checkErrorField('mail', 'required')){
-                    <p class="error">El email es obligatorio</p>
-                    }
-                
-                    @if(checkErrorField('mail', 'pattern')){
-                    <p class="error">El email tiene que ser correcto</p>
-                    }
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" formControlName="password" placeholder="Introduce tu contraseña">
-                @if(checkErrorField('password', 'required')){
-                    <p class="error">La contraseña es obligatoria</p>
-                    }
-                    @if(checkErrorField('password', 'minlength')){
-                        <p class="error">La longitud minima de la contraseña es 6</p>
+<div>
+    <div class="positionImg">
+        <figure>
+            <img src="/images/illustration-login.png">
+        </figure>
+    </div>
+
+    <div class="formLogin">
+        <figure>
+            <img src="/images/iconoPerfil.png">
+        </figure>
+        <h4>Registro</h4>
+        <div class="row mt-4 text-center">
+            <div class="col-12 ">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3 ">
+                        <label for="" class="form-label visually-hidden">Username</label>
+                        <input type="text" class="form-control rounded-pill text-center px-5 py-2"
+                            formControlName="username" placeholder="Username">
+                        @if(checkErrorField('username', 'required')){
+                        <p class="error mt-2">El campo es obligatorio</p>
                         }
+                        @if(checkErrorField('username', 'minlength')){
+                        <p class="error mt-2">El Username debe tener una longitud mínima de 6 caracteres</p>
+                        }
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="" class="form-label visually-hidden">Correo electrónico</label>
+                        <input type="text" class="form-control rounded-pill text-center  px-5 py-2"
+                            formControlName="mail" placeholder="Correo electrónico">
+                        @if(checkErrorField('mail', 'required')){
+                        <p class="error mt-2">El email es obligatorio</p>
+                        }
+
+                        @if(checkErrorField('mail', 'pattern')){
+                        <p class="error mt-2">El email tiene que ser correcto</p>
+                        }
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="" class="form-label visually-hidden">Contraseña</label>
+                        <input type="password" class="form-control rounded-pill text-center  px-5 py-2"
+                            formControlName="password" placeholder="Introduce tu contraseña">
+                        @if(checkErrorField('password', 'required')){
+                        <p class="error mt-2 mb-0">La contraseña es obligatoria</p>
+                        }
+                        @if(checkErrorField('password', 'minlength')){
+                        <p class="error mt-2 mb-0">La longitud minima de la contraseña es 6</p>
+                        }
+                    </div>
+                    <div class="mb-3 ">
+                        <label class="form-label visually-hidden" for="checkPassword">Repite la contraseña</label>
+                        <input class="form-control rounded-pill text-center  px-5 py-2" type="password"
+                            id="checkPassword" formControlName="checkPassword" placeholder="Repite la contraseña">
+                        @if(registerForm.hasError('passwordvalidator') && registerForm.get('password')?.value &&
+                        registerForm.get('checkPassword')?.value){
+                        <p class="error mt-2 mb-0">Las contraseñas no coinciden</p>
+                        }
+
+                    </div>
+                    <app-button type="submit" class="mt-2"> Registrarse </app-button>
+
+                </form>
             </div>
-            <div>
-                <label class="form-label" for="checkPassword">Repite la contraseña</label>
-                <input class="form-control" type="password" id="checkPassword" formControlName="checkPassword">
-                @if(registerForm.hasError('passwordvalidator') && registerForm.get('password')?.value && registerForm.get('checkPassword')?.value){
-                    <p class="error">Las contraseñas no coinciden</p>
-                }
-                
-              </div>
-         
-            <input type="submit" value="Registrarse" class="btn btn-info mt-5 ">
-        </form>
+        </div>
     </div>
 </div>

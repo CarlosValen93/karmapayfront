@@ -19,7 +19,10 @@
 
     /* Others colors */
     --secondary-color: #8CBBE5;
+    /* botones */
     --third-color: #FF644C;
+    /* textos alternativos, no principales */
+    --fourth-color: #3b4a51;
 }
 
 * {

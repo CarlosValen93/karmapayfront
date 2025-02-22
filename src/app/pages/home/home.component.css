@@ -12,12 +12,35 @@ img {
     height: auto;
     background: none;
 
+}
 
+.info {
 
+    h1 {
+        font-size: 4.5rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        margin-bottom: 2rem;
+        color: var(--fourth-color);
+    }
+
+    p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: var(--fourth-color);
+    }
+
+    .btn-large {
+        padding: 0.5rem 5rem;
+    }
 }
 
 
 @media(width >=992px) {
+
     .home {
         background-image: url("/images/illustration2-02.png");
         background-repeat: no-repeat;

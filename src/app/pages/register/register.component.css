@@ -1,0 +1,50 @@
+.positionImg {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border: 6px solid var(--primary-color);
+    border-radius: 1.5rem;
+    width: 500px;
+    height: auto;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    figure {
+        max-width: 80px;
+        height: auto;
+    }
+
+    h4 {
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+
+    }
+
+}
+
+@media(width <=992px) {
+    .positionImg {
+        display: none;
+    }
+
+    .formLogin {
+        position: unset;
+        transform: none;
+        width: 90%;
+        margin: 2rem auto;
+    }
+
+}
