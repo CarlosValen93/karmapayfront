@@ -90,4 +90,18 @@ export class TeamsService {
     }
     return true;
   }
+  addUserToTeam(userId: number, teamId: number) {
+   
+    return firstValueFrom(
+      this.httpClient.post(
+        `${this.baseUrl}/create/createUserTeam`, 
+        { 
+          userId,     // Envía el userId directamente
+          teamId 
+        },
+      
+      )
+    );
+}
+
 }

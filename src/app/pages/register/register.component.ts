@@ -47,41 +47,33 @@ export class RegisterComponent {
   }
   //Poner que pasa cuando el nombre de un usuario ya esta cogido
   async onSubmit() {
-    if (this.registerForm.invalid) {
-      return;
-    }
-
+    if (this.registerForm.invalid) return;
+  
     try {
-      const user = await this.usersService.register(this.registerForm.value);
-
+      await this.usersService.register(this.registerForm.value);
+  
       Swal.fire({
         title: '¡Registrado con éxito!',
-        text: `El usuario se ha registrado correctamente.`,
+        text: 'El usuario se ha registrado correctamente.',
         icon: 'success',
         confirmButtonText: 'Aceptar'
       }).then(() => {
         this.router.navigate(['/home']);
       });
-
+  
       this.registerForm.reset();
-    } catch (error: any) {
-      let errorMessage = 'Este Email ya está en uso';
-
-
-      if (error?.status === 400 && error?.error?.message === 'El email ya está en uso') {
-        errorMessage = 'El email ya está en uso, por favor usa otro.';
-      }
-
+    } catch (error) {
       Swal.fire({
         title: 'Error',
-        text: errorMessage,
+        text: 'Hubo un problema al registrarse. Inténtalo de nuevo.',
         icon: 'error',
         confirmButtonText: 'Intentar de nuevo'
       });
-
-      console.error(error);
+  
+      console.error('Error en registro:', error);
     }
   }
+  
 
   checkErrorField(field: string, error: string): boolean {
     return this.registerForm.get(field)?.hasError(error) && this.registerForm.get(field)?.touched ? true : false;
