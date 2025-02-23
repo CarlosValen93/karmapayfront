@@ -6,11 +6,12 @@ import { ITeam } from '../../interface/team.interface';
 import { TeamsService } from '../../services/teams.service';
 import Swal from 'sweetalert2';
 import { Observable, from } from 'rxjs';
+import { ButtonComponent } from "../../components/button/button.component";
 
 
 @Component({
   selector: 'app-team',
-  imports: [RouterLink, ExpenseListComponent, UserListComponent],
+  imports: [RouterLink, ExpenseListComponent, UserListComponent, ButtonComponent],
   templateUrl: './team.component.html',
   styleUrl: './team.component.css'
 })
@@ -19,7 +20,7 @@ export class TeamComponent {
   teamsService = inject(TeamsService);
   router = inject(Router);
   team!: ITeam
-  isOwner: Observable<boolean> = new Observable<boolean>();
+  isOwner: boolean = false;
 
 
   async ngOnInit() {
@@ -45,7 +46,7 @@ export class TeamComponent {
       // });
       // this.router.navigate(['/home']);
     }
-    this.isOwner = from(this.teamsService.isOwner(this.idTeam));
+    this.isOwner = await this.teamsService.isOwner(this.idTeam);
   }
 
 

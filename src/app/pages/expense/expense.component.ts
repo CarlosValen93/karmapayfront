@@ -3,11 +3,11 @@ import { RouterLink, Router } from '@angular/router';
 import { ExpenseResponse, ExpensesService } from '../../services/expenses.service';
 
 import Swal from 'sweetalert2';
-import { Location } from '@angular/common';
+import { DatePipe, Location } from '@angular/common';
 
 @Component({
   selector: 'app-expense',
-  imports: [RouterLink],
+  imports: [RouterLink, DatePipe],
   templateUrl: './expense.component.html',
   styleUrl: './expense.component.css'
 })
@@ -22,11 +22,6 @@ export class ExpenseComponent {
     try {
       let id: number = Number(this.idExpense);
       let response = await this.expensesService.getById(id);
-
-      const assigResult = await this.expensesService.getAssig(id)
-      if (!assigResult) { this.assig = 0 }
-      this.assig = assigResult.Assignation
-
       if (response) {
         this.expense = response;
       } else {
@@ -37,6 +32,12 @@ export class ExpenseComponent {
         });
         this.router.navigate(['/home']);
       }
+
+      const assigResult = await this.expensesService.getAssig(id)
+      this.assig = assigResult.Assignation
+
+      if (!assigResult) { this.assig = 0 }
+
     } catch (error) {
       //  Swal.fire({
       //   icon: "error",

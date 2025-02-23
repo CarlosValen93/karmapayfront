@@ -4,20 +4,21 @@ import { ExpenseCardComponent } from '../expense-card/expense-card.component';
 import { ExpenseSearchComponent } from '../expense-search/expense-search.component';
 import { ExpensesService } from '../../services/expenses.service';
 import { RouterLink } from '@angular/router';
+import { ButtonComponent } from "../button/button.component";
 
 @Component({
   selector: 'app-expense-list',
-  imports: [ExpenseCardComponent, ExpenseSearchComponent, RouterLink],
+  imports: [ExpenseCardComponent, ExpenseSearchComponent, RouterLink, ButtonComponent],
   templateUrl: './expense-list.component.html',
   styleUrl: './expense-list.component.css'
 })
 export class ExpenseListComponent {
-  arrExpenses: IExpense[] =[];
+  arrExpenses: IExpense[] = [];
   expensesServices = inject(ExpensesService);
   @Input() idTeam: number = 0;
 
 
-  async ngOnInit(){
+  async ngOnInit() {
     try {
       let expenses: IExpense[] = await this.expensesServices.getbyIdGroup(this.idTeam)
       this.arrExpenses = expenses;

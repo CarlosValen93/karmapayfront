@@ -85,6 +85,7 @@ export class TeamsService {
     const token = localStorage.getItem(environment.tokenName);
     const payload = jwtDecode<CustomPayload>(token!);
     const idOwner = await this.getOwner(id);
+    console.log(idOwner)
     if (payload.userId !== idOwner) {
       return false;
     }

@@ -3,12 +3,13 @@ import { UserCardComponent } from '../user-card/user-card.component';
 import { UserSearchComponent } from '../user-search/user-search.component';
 import { IUser } from '../../interface/user.interface';
 import { UsersService } from '../../services/users.service';
+import { ButtonComponent } from "../button/button.component";
 
 
 
 @Component({
   selector: 'app-user-list',
-  imports: [UserSearchComponent, UserCardComponent],
+  imports: [UserSearchComponent, UserCardComponent, ButtonComponent],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
