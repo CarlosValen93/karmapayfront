@@ -39,17 +39,12 @@ async searchByUsername(event: string) {
       this.arrUsers = result 
     } else {
       let users: IUser[] = await this.usersServices.getByIdGroup(this.idTeam)
-      this.arrUsers = users;
+    this.arrUsers = users;
     }
-    } catch (err) {
-      console.log(err);
-    }
+  } catch (err) {
+    console.log(err);
   }
-
-
-
-
-
+}
 async inviteUser() {
   if (!this.inviteByEmail) {
     Swal.fire({
