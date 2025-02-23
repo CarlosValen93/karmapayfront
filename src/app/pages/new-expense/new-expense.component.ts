@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UsersService } from '../../services/users.service';
 import { IUser } from '../../interface/user.interface';
+import { ButtonComponent } from "../../components/button/button.component";
 
 @Component({
   selector: 'app-new-expense',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ButtonComponent],
   templateUrl: './new-expense.component.html',
   styleUrl: './new-expense.component.css'
 })
@@ -23,7 +24,7 @@ export class NewExpenseComponent {
   arrUsersTeam: IUser[] = []
   constructor() {
     this.registerForm = new FormGroup({
-      name: new FormControl('', [ Validators.minLength(3)]),
+      name: new FormControl('', [Validators.minLength(3)]),
       amount: new FormControl('', [Validators.required, Validators.min(0.5), Validators.max(1000000), Validators.pattern("^[0-9]+(\.[0-9]{1,2})?$")
       ]),
       assignations: new FormArray<FormGroup>([])
