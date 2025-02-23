@@ -20,15 +20,15 @@ export class UserCardComponent {
   async ngOnInit() {
 
     try {
-      const result = await this.expensesService.getDebtByUserTeam(this.idTeam, this.miUser.Id);
-      let userDebt = Number(result?.userdebt?.Debes) || 0;
+      const result = await this.expensesService.getDebtByUserTeam(this.miUser.Id, this.idTeam);
 
+      let userDebt = Number(result[0].Debes) || 0;
 
       this.debt = parseFloat(userDebt.toFixed(2));
 
     } catch (error) {
       console.error('Error al obtener la deuda:', error);
-      this.debt = 0; // Valor por defecto en caso de error
+      this.debt = 0;
     }
   }
 }
