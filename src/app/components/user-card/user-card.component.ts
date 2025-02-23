@@ -13,14 +13,16 @@ import { ExpensesService } from '../../services/expenses.service';
 export class UserCardComponent {
   @Input() miUser!: IUser;
   @Input() miUserExpense!: IUserExpense;
+  @Input() idTeam!: number
+
   expensesService = inject(ExpensesService)
   debt: number = 0
   async ngOnInit() {
 
     try {
-      const result = await this.expensesService.getDebtByUserTeam(1, this.miUser.Id);
-
+      const result = await this.expensesService.getDebtByUserTeam(this.idTeam, this.miUser.Id);
       let userDebt = Number(result?.userdebt?.Debes) || 0;
+
 
       this.debt = parseFloat(userDebt.toFixed(2));
 

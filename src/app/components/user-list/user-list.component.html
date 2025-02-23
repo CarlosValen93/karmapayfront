@@ -5,7 +5,7 @@
 <div class="row">
   @for( user of arrUsers; track user.Id) {
   <article class="col-xl-6 col-lg-6 col-md-6 col-xs-6 g-3">
-    <app-user-card [miUser]="user"></app-user-card>
+    <app-user-card [miUser]="user" [idTeam]="idTeam"></app-user-card>
   </article>
   }@empty {
   <h4>No hay integrantes</h4>
