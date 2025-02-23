@@ -3,10 +3,11 @@ import { RouterLink } from '@angular/router';
 import { IUser } from '../../interface/user.interface';
 import { IUserExpense } from '../../interface/user-expense.interface';
 import { ExpensesService } from '../../services/expenses.service';
+import { ButtonComponent } from "../button/button.component";
 
 @Component({
   selector: 'app-user-card',
-  imports: [RouterLink],
+  imports: [RouterLink, ButtonComponent],
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.css'
 })

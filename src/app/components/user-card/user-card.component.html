@@ -6,7 +6,7 @@
         <div class="ms-3">
             <p><strong>{{miUser.Username}}</strong></p>
             <p>Subtotal: {{debt}}€</p>
-            <button class="btn btn-sm btn-danger" [routerLink]="['/user', miUser.Id]">Ver detalle</button>
+            <app-button [routerLink]="['/user', miUser.Id]">Ver detalle</app-button>
         </div>
     </div>
 </div>

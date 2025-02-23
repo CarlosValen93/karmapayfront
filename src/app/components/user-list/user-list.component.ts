@@ -4,15 +4,23 @@ import { UserCardComponent } from '../user-card/user-card.component';
 import { UserSearchComponent } from '../user-search/user-search.component';
 import { IUser } from '../../interface/user.interface';
 import { UsersService } from '../../services/users.service';
+<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 import { TeamsService } from '../../services/teams.service';
 import Swal from 'sweetalert2';
+=======
+import { ButtonComponent } from "../button/button.component";
+>>>>>>> feature/expense
 
 
 
 @Component({
   selector: 'app-user-list',
+<<<<<<< HEAD
   imports: [UserSearchComponent, UserCardComponent,FormsModule],
+=======
+  imports: [UserSearchComponent, UserCardComponent, ButtonComponent],
+>>>>>>> feature/expense
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })

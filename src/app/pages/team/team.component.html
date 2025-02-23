@@ -6,7 +6,8 @@
         <div class="row g-3">
             <div class="col-xl-2 col-md-3 col-xs-12">
                 <figure>
-                    <img src="https://media.istockphoto.com/id/155666671/es/vector/ilustraci%C3%B3n-vectorial-de-red-house-icon.jpg?s=612x612&w=0&k=20&c=3IHzI5tgnVZQuE_4ZdJDIDyMGd44qWuketKv5EOvawQ=" alt="">
+                    <img src="https://media.istockphoto.com/id/155666671/es/vector/ilustraci%C3%B3n-vectorial-de-red-house-icon.jpg?s=612x612&w=0&k=20&c=3IHzI5tgnVZQuE_4ZdJDIDyMGd44qWuketKv5EOvawQ="
+                        alt="">
                 </figure>
             </div>
             <div class="col-xl-8 col-md-6 col-xs-12">
@@ -17,35 +18,35 @@
                 </div>
             </div>
             <div class="col-xl-2 col-md-3 col-xs-12 p-3 pt-3">
-                 <div class="d-flex flex-column">
+                <div class="d-flex flex-column">
                     @if(isOwner){
-                        <button class="btn btn-danger mb-2" (click)="ngChangeInfo()">Modificar info</button>
-                        <button class="btn btn-danger mb-2" (click)="ngDeleteTeam()">Borrar Grupo</button>
+                    <app-button class=" mb-2" (click)="ngChangeInfo()">Modificar info</app-button>
+                    <app-button class=" mb-2" (click)="ngDeleteTeam()">Borrar Grupo</app-button>
                     }
-                    <button class="btn btn-danger" [routerLink]="['/home']">Volver a la Home</button>
+                    <app-button [routerLink]="['/home']">Volver a la Home</app-button>
                 </div>
             </div>
         </div>
 
-        
+
         <div class="row  m-2">
 
             <div class=" p-4 col-xl-6">
-                
+
                 <app-expense-list [idTeam]="idTeam"></app-expense-list>
-            
+
             </div>
 
             <div class=" p-4 col-xl-6">
 
                 <app-user-list [idTeam]="idTeam"></app-user-list>
-            
+
             </div>
 
         </div>
-            
+
     </div>
-    
+
 </section>
 
 }
