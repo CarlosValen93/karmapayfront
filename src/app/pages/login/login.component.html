@@ -1,32 +1,55 @@
-<div class="row mt-5">
-    <div class="col-12 col-lg-6 offset-0 offset-lg-3">
-        <div class="card p-4 shadow-lg border-0 rounded-4" style="background: #f8f9fa;">
-            <h2 class="text-center mb-4 text-primary">Iniciar Sesión</h2>
-            
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Email</label>
-                    <input type="email" class="form-control border-primary rounded-3" formControlName="mail" placeholder="Ingresa tu email">
-                  
-                @if(checkErrorField('mail', 'required')){
-                    <p>Email es obligatorio</p>
+<div>
+    <div class="positionImg">
+        <figure>
+            <img src="/images/illustration-login.png">
+        </figure>
+    </div>
+    <!--     <div class="pImg">
+        <figure>
+            <img src="/images/illustration-login-2.png">
+        </figure>
+    </div> -->
 
-                }
-               
-                    @if(checkErrorField('mail', 'pattern')){
-                        <p>Formato no válido</p>
-                    }
-            
-                 
+    <div class="formLogin shadow-lg">
+        <figure>
+            <img src="/images/iconoPerfil.png">
+        </figure>
+        <h4>Iniciar Sesión</h4>
+        <div class="row mt-4 text-center text-primary">
+            <div class="col-12 ">
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label class="form-label visually-hidden">Email</label>
+                        <input type="email" class="form-control border-primary rounded-pill text-center px-5 py-2"
+                            formControlName="mail" placeholder="Ingresa tu email">
+
+                        @if(checkErrorField('mail', 'required')){
+                        <p class="error mt-2">Email es obligatorio</p>
+
+                        }
+
+                        @if(checkErrorField('mail', 'pattern')){
+                        <p class="error mt-2">Formato no válido</p>
+                        }
+
+
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label visually-hidden">Contraseña</label>
+                        <input type="password" class="form-control border-primary rounded-pill text-center px-5 py-2"
+                            formControlName="password" placeholder="Ingresa tu contraseña">
+                        @if(checkErrorField('password', 'required')){
+                        <p class="error mt-2">Contraseña obligatoria</p>
+                        }
+                    </div>
+                    <app-button type="submit" value="login" class="mt-2"> Iniciar Sesión </app-button>
+
+                    <!--                     <input type="submit" value="Enviar" class="btn btn-danger btn-lg rounded-3 fw-bold"
+                        [disabled]="loginForm.invalid"> -->
+                </form>
+
             </div>
-            <div class="mb-3">
-                <label class="form-label fw-bold">Contraseña</label>
-                <input type="password" class="form-control border-primary rounded-3" formControlName="password" placeholder="Ingresa tu contraseña">
-                @if(checkErrorField('password', 'required')){
-                    <p>Contraseña obligatoria</p>
-                }
-            </div>
-            <input type="submit" value="Enviar"  class="btn btn-danger btn-lg rounded-3 fw-bold" [disabled]="loginForm.invalid">
-        </form>
+        </div>
     </div>
 </div>

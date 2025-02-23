@@ -1,54 +1,64 @@
-<div class="row mt-5">
-    <div class="col-12 col-lg-6 offset-0 offset-lg-3">
-        <h1>Nuevo gasto</h1>
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-                <label for="" class="form-label">Título del gasto </label>
-                <input type="text" class="form-control" formControlName="name">
-           
-                @if(checkErrorField('name', 'minlength')){
-                <p class="error">El título es obligatorio y debe tener al menos 3 caracteres</p>
-                }
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label">Cantidad</label>
-                <input type="text" class="form-control" formControlName="amount">
-                @if(checkErrorField('amount', 'required')){
-                <p class="error">El campo es obligatorio</p>
-                }
+<div class="page-background mt-5 ">
 
-                @if(checkErrorField('amount', 'min')){
-                <p class="error">La cantidad tiene que ser al menos de 50 céntimos</p>
-                }
-                @if(checkErrorField('amount', 'max')){
-                <p class="error">El gasto no puede ser mayor de 1 millón de euros</p>
-                }
+    <div class="form-box col-lg-6 ">
+        <button title="volver atrás" (click)="goBack()"> <i class="fas fa-arrow-left"></i></button>
+        <h1 class="text-center">Nuevo gasto</h1>
+        <div class="row mt-4 align-self-center">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="" class="form-label">Título del gasto </label>
+                    <input type="text" class="form-control" formControlName="name">
 
-                @if(checkErrorField('amount', 'pattern')){
-                <p class="error">Solo puedes añadir números</p>
-                }
-            </div>
+                    @if(checkErrorField('name', 'minlength')){
+                    <p class="error">El título es obligatorio y debe tener al menos 3 caracteres</p>
+                    }
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Cantidad</label>
+                    <input type="text" class="form-control" formControlName="amount">
+                    @if(checkErrorField('amount', 'required')){
+                    <p class="error">El campo es obligatorio</p>
+                    }
 
-            @if(arrUsersTeam){
+                    @if(checkErrorField('amount', 'min')){
+                    <p class="error">La cantidad tiene que ser al menos de 50 céntimos</p>
+                    }
+                    @if(checkErrorField('amount', 'max')){
+                    <p class="error">El gasto no puede ser mayor de 1 millón de euros</p>
+                    }
 
-            <div formArrayName="assignations">
-                @for(assignationForm of assignations.controls; track $index){
-                <div [formGroupName]="$index">
-                    <div class="mb-3">
-                        <label for="" class="form-label">Nombre integrante </label>
-                        <input type="text" class="form-control" formControlName="Username">
+                    @if(checkErrorField('amount', 'pattern')){
+                    <p class="error">Solo puedes añadir números</p>
+                    }
+                </div>
+
+                @if(arrUsersTeam){
+
+                <div class="d-flex justify-content-around" formArrayName="assignations">
+                    @for(assignationForm of assignations.controls; track $index){
+                    <div [formGroupName]="$index">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Integrante </label>
+                            <input type="text" class="form-control" formControlName="Username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Asignación </label>
+                            <input type="text" class="form-control" formControlName="Assignation">
+                        </div>
+                        <input type="hidden" formControlName="UserId">
                     </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Asignación por integrante </label>
-                        <input type="text" class="form-control" formControlName="Assignation">
-                    </div>
-                    <input type="hidden" formControlName="UserId">
+                    }
                 </div>
                 }
-            </div>
-            }
-            <input type="submit" value="Añadir gasto" class="btn btn-info">
-        </form>
-        <button class="btn btn-info mt-3" (click)="goBack()">Volver atrás</button>
+                <div class="text-center mt-2">
+                    <app-button type="submit" value="Añadir gasto"> Añadir gasto</app-button>
+                </div>
+
+
+            </form>
+        </div>
+
     </div>
+
+
 </div>

@@ -5,13 +5,14 @@ button {
     border-radius: 12rem;
     padding: 0.35rem 1rem;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out, background-color 0.3s;
+    transition: transform 0.5s ease-in-out, background-color 0.3s, box-shadow 0.3s, border 0.3s;
 
     &:hover {
         color: var(--third-color);
         background-color: var(--secondary);
+        border: 0.1rem solid var(--third-color);
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-        transform: translateY(-1px);
+        transform: translateY(-0.1px);
         transition: all 0.3s ease-in-out;
     }
 }
