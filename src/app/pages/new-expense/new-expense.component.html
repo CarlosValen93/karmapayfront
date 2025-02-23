@@ -6,7 +6,7 @@
         <div class="row mt-4 align-self-center">
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3">
-                    <label for="" class="form-label">Título del gasto </label>
+                    <label for="" class="form-label fw-bold">Título del gasto </label>
                     <input type="text" class="form-control" formControlName="name">
 
                     @if(checkErrorField('name', 'minlength')){
@@ -14,7 +14,7 @@
                     }
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Cantidad</label>
+                    <label for="" class="form-label fw-bold">Cantidad</label>
                     <input type="text" class="form-control" formControlName="amount">
                     @if(checkErrorField('amount', 'required')){
                     <p class="error">El campo es obligatorio</p>
