@@ -7,6 +7,10 @@ import { jwtDecode } from 'jwt-decode';
 import { CustomPayload } from '../guards/auth.guard';
 
 type ExpenseBody = { name: string, amount: number, teamId: number, assignations: any[] };
+export type ExpenseResponse = {
+  Amount: number, CreationDate: string, Creator: string, Id: number, Name: string, Team: string
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -39,9 +43,9 @@ export class ExpensesService {
     );
   }
 
-  getById(id: number): Promise<IExpense | null> {
+  getById(id: number): Promise<ExpenseResponse | null> {
     const expense = lastValueFrom(
-      this.httpClient.get<IExpense | null>(`${this.baseUrl}/${id}`)
+      this.httpClient.get<ExpenseResponse | null>(`${this.baseUrl}/${id}`)
     );
     if (!expense) {
       throw new Error(`Expense with id ${id} not found`);
@@ -60,6 +64,12 @@ export class ExpensesService {
 
   getDebtByUserTeam(teamId: number, userId: number): Promise<any> {
     const result = lastValueFrom(this.httpClient.get<any>(`${this.baseUrl}/getDebt/${teamId}/${userId}`)
+    );
+    return result
+  }
+
+  getAssig(teamId: number): Promise<any> {
+    const result = lastValueFrom(this.httpClient.get<any>(`${this.baseUrl}/getAssig/${teamId}`)
     );
     return result
   }

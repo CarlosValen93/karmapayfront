@@ -1,7 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
-import { ExpensesService } from '../../services/expenses.service';
-import { IExpense } from '../../interface/expense.interface';
+import { ExpenseResponse, ExpensesService } from '../../services/expenses.service';
+
 import Swal from 'sweetalert2';
 import { Location } from '@angular/common';
 
@@ -12,16 +12,21 @@ import { Location } from '@angular/common';
   styleUrl: './expense.component.css'
 })
 export class ExpenseComponent {
-  @Input() idExpense: number=0;
-  expensesService=inject(ExpensesService);
-  router =inject(Router);
-  expense!: IExpense
+  @Input() idExpense: number = 0;
+  expensesService = inject(ExpensesService);
+  router = inject(Router);
+  expense!: ExpenseResponse;
   location = inject(Location);
-
+  assig: number = 0
   async ngOnInit() {
     try {
       let id: number = Number(this.idExpense);
       let response = await this.expensesService.getById(id);
+
+      const assigResult = await this.expensesService.getAssig(id)
+      if (!assigResult) { this.assig = 0 }
+      this.assig = assigResult.Assignation
+
       if (response) {
         this.expense = response;
       } else {
@@ -34,11 +39,11 @@ export class ExpenseComponent {
       }
     } catch (error) {
       //  Swal.fire({
-       //   icon: "error",
-       //   title: "Oops...",
-       //   text: "Error al obtener el gasto",
-       // });
-       // this.router.navigate(['/home']);
+      //   icon: "error",
+      //   title: "Oops...",
+      //   text: "Error al obtener el gasto",
+      // });
+      // this.router.navigate(['/home']);
     }
   }
 
@@ -54,10 +59,10 @@ export class ExpenseComponent {
       this.location.back();
     } catch (error) {
       Swal.fire({
-       icon: "error",
-       title: "Oops...",
-       text: "Error al borrar el gasto",
-    });
+        icon: "error",
+        title: "Oops...",
+        text: "Error al borrar el gasto",
+      });
     }
   }
 
@@ -65,7 +70,7 @@ export class ExpenseComponent {
     this.location.back();
   }
 
-  ngChangeInfo(){
+  ngChangeInfo() {
   }
 
 }

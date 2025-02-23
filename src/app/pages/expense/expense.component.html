@@ -1,23 +1,23 @@
 @if (expense) {
 
 <section class="container my-3">
-    <h3 class="mb-3">Detalle de gasto</h3>
-    <div class="card p-3 shadow-sm2">
-      <div>
-        <h3 class="pb-3">{{expense.Name}}</h3>
-        <p><strong>Fecha de creación:</strong> {{expense.CreationDate}}</p>
-        <p><strong>Fecha de actualización:</strong> {{expense.UpdatedDate}}</p>
-        <p><strong>Cantidad:</strong> {{expense.Amount}}</p>
-        <p><strong>Grupo:</strong> grupo al que pertenece</p>
-        <p><strong>Creador:</strong> creador del gasto</p>
-        <p><strong>Asignación:</strong> % asignado del gasto</p>
-        @if(expensesService.isCreator(idExpense)){
-          <button class="btn btn-danger m-2" [routerLink]="['/updateexpenses',idExpense]">Modificar</button>
-          <button class="btn btn-danger m-2" (click)="ngDeleteExpense()">Borrar</button>
-        } 
-        <button class="btn btn-danger" (click)="goBack()">Volver al grupo</button>
-      </div>
+  <h3 class="mb-3">Detalle de gasto</h3>
+  <div class="card p-3 shadow-sm2">
+    <div>
+      <h3 class="pb-3">{{expense.Name}}</h3>
+      <p><strong>Fecha de creación:</strong> {{expense.CreationDate}}</p>
+
+      <p><strong>Cantidad:</strong> {{expense.Amount}}</p>
+      <p><strong>Creador:</strong> {{expense.Creator}}</p>
+      <p><strong>Creador:</strong> {{expense.Team}}</p>
+      <p><strong>Asignación:</strong> {{assig}}€</p>
+      @if(expensesService.isCreator(idExpense)){
+      <button class="btn btn-danger m-2" [routerLink]="['/updateexpenses',idExpense]">Modificar</button>
+      <button class="btn btn-danger m-2" (click)="ngDeleteExpense()">Borrar</button>
+      }
+      <button class="btn btn-danger" (click)="goBack()">Volver al grupo</button>
     </div>
-  </section>
+  </div>
+</section>
 
 }
