@@ -12,6 +12,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
+        
 
             <ul class="navbar-nav ms-auto text-center align-items-center">
                 @if(usersService.isLogged()){
@@ -30,15 +31,15 @@
 
                 </li>
 
-                <li class="nav-item texr-center">
-                    <a class="nav-link" (click)="logout()">Logout</a>
+                <li class="nav-item text-center">
+                    <a class="nav-link botonlog" (click)="logout()">Logout</a>
                 </li>
-
-                <li class="nav-item d-none d-lg-block">
-                    <a class="nav-link" [routerLink]="['/user/',userId]" [title]="mail"> <i
-                            class="fa-solid fa-circle-user"></i></a>
+                <li class="nav-item d-lg-block lis ">
+                    <a class="nav-link" [routerLink]="['/user/', userId]" [title]="mail"> 
+                        <img src="/images/iconoPerfil.png" class="perfil-img" alt="Perfil"/>
+                    </a>
                 </li>
-
+                
 
 
                 }@else {

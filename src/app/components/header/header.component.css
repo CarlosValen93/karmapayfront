@@ -15,7 +15,7 @@ a {
     font-size: 1.1rem;
     color: var(--fourth-color);
     cursor: pointer;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 
     i {
         font-size: 1.8rem;
@@ -26,6 +26,39 @@ a {
 .hamburguer {
     margin-top: 4rem;
     margin-bottom: 2rem;
+}
+.botonlog {
+    color:var(--third-color);
+  
+    border: 0px;
+    width: 100%;
+    height: auto;
+    border-radius: 12rem;
+    padding: 0.35rem 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s, box-shadow 0.3s, border 0.3s;
+
+    &:hover {
+        color: white;
+        background-color: var(--third-color);
+        border: 0.1rem solid var(--third-color);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        transform: translateY(-0.1px);
+        transition: all 0.3s ease-in-out;
+    }
+
+
+}
+.perfil-img {
+    width: 55px;
+    height: 30px;
+    transition: transform 0.2s ease-in-out;
+    display: block; 
+    
+}
+    
+.nav-link:hover .perfil-img {
+    transform: scale(1.1);
 }
 
 @media(width >=992px) {
