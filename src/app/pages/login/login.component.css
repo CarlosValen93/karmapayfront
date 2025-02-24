@@ -24,7 +24,7 @@
     border-radius: 1.5rem;
     width: 500px;
     height: auto;
-    top: 70%;
+    top: 68%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -40,6 +40,11 @@
         letter-spacing: 0.2rem;
 
     }
+
+    .btnSize {
+        font-size: 1.2rem;
+    }
+
 
 }
 
