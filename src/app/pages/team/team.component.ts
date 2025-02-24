@@ -53,19 +53,43 @@ export class TeamComponent {
 
   async ngDeleteTeam() {
     try {
-      let id: number = Number(this.idTeam);
-      let response = await this.teamsService.deleteTeam(id);
+      
       Swal.fire({
-        icon: "success",
-        title: "Borrado!",
-        text: "El grupo ha sido borrado",
+        title: "¿Estás seguro?",
+        text: "¡No podrás recuperar el grupo una vez borrado!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "tomato",
+        confirmButtonText: "Sí, borrar!",
+        cancelButtonText: "Cancelar"
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+
+          let id: number = Number(this.idTeam);
+          await this.teamsService.deleteTeam(id);
+
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "¡Grupo borrado!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+
+          this.router.navigate(['/home']);
+
+        }
       });
-      this.router.navigate(['/home']);
+
+
+
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Error al borrar el grupoo",
+        text: "¡Error al borrar el grupo!",
+        confirmButtonColor: "tomato"
       });
     }
   }

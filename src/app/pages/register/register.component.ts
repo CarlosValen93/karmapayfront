@@ -56,7 +56,8 @@ export class RegisterComponent {
         title: '¡Registrado con éxito!',
         text: 'El usuario se ha registrado correctamente.',
         icon: 'success',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: "tomato",
       }).then(() => {
         this.router.navigate(['/home']);
       });
@@ -67,7 +68,8 @@ export class RegisterComponent {
         title: 'Error',
         text: 'Hubo un problema al registrarse. Inténtalo de nuevo.',
         icon: 'error',
-        confirmButtonText: 'Intentar de nuevo'
+        confirmButtonText: 'Intentar de nuevo',
+        confirmButtonColor: "tomato",
       });
   
       console.error('Error en registro:', error);

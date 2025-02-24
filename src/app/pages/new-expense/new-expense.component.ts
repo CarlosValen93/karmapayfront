@@ -56,7 +56,8 @@ export class NewExpenseComponent {
         title: 'Error',
         text: 'Por favor, completa todos los campos correctamente.',
         icon: 'error',
-        confirmButtonText: 'Revisar'
+        confirmButtonText: 'Revisar',
+        confirmButtonColor: "tomato"
       });
       return;
     }
@@ -73,10 +74,11 @@ export class NewExpenseComponent {
       await this.expensesService.add(expenseBody);
 
       Swal.fire({
-        title: '¡Gasto agregado!',
-        text: `El gasto ha sido registrado correctamente.`,
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
+        position: "top-end",
+        icon: "success",
+        title: "¡Gasto añadido correctamente!",
+        showConfirmButton: false,
+        timer: 1500
       });
 
       this.registerForm.reset();
@@ -89,7 +91,8 @@ export class NewExpenseComponent {
         title: 'Error',
         text: error?.error?.message || 'No se pudo agregar el gasto. Intenta de nuevo.',
         icon: 'error',
-        confirmButtonText: 'Cerrar'
+        confirmButtonText: 'Cerrar',
+        confirmButtonColor: "tomato"
       });
     }
   }

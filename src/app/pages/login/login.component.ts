@@ -50,7 +50,8 @@ export class LoginComponent {
         title: 'Error',
         text: errorMessage,
         icon: 'error',
-        confirmButtonText: 'Volver a intentar'
+        confirmButtonText: 'Volver a intentar',
+        confirmButtonColor: "tomato",
       }).then(() => {
         this.router.navigateByUrl('/login');
       });
