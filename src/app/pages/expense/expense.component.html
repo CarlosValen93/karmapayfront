@@ -11,7 +11,7 @@
       <p><strong>Creador:</strong> {{expense.Creator}}</p>
       <p><strong>Grupo:</strong> {{expense.Team}}</p>
       <p><strong>Asignación:</strong> {{assig}}€</p>
-      @if(expensesService.isCreator(idExpense)){
+      @if(expensesService.isCreator(expense.UserIDCreator)){
       <button class="btn btn-danger m-2" [routerLink]="['/updateexpenses',idExpense]">Modificar</button>
       <button class="btn btn-danger m-2" (click)="ngDeleteExpense()">Borrar</button>
       }

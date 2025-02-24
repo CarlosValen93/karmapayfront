@@ -22,6 +22,7 @@ export class ExpenseComponent {
     try {
       let id: number = Number(this.idExpense);
       let response = await this.expensesService.getById(id);
+      console.log(response)
       if (response) {
         this.expense = response;
       } else {
@@ -52,6 +53,7 @@ export class ExpenseComponent {
     try {
       let id: number = Number(this.idExpense);
       let response = await this.expensesService.deleteExpense(id);
+
       Swal.fire({
         icon: "success",
         title: "Borrado!",

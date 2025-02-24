@@ -85,24 +85,24 @@ export class TeamsService {
     const token = localStorage.getItem(environment.tokenName);
     const payload = jwtDecode<CustomPayload>(token!);
     const idOwner = await this.getOwner(id);
-    console.log(idOwner)
+
     if (payload.userId !== idOwner) {
       return false;
     }
     return true;
   }
   addUserToTeam(userId: number, teamId: number) {
-   
+
     return firstValueFrom(
       this.httpClient.post(
-        `${this.baseUrl}/create/createUserTeam`, 
-        { 
+        `${this.baseUrl}/create/createUserTeam`,
+        {
           userId,     // Envía el userId directamente
-          teamId 
+          teamId
         },
-      
+
       )
     );
-}
+  }
 
 }

@@ -8,7 +8,7 @@ import { CustomPayload } from '../guards/auth.guard';
 
 type ExpenseBody = { name: string, amount: number, teamId: number, assignations: any[] };
 export type ExpenseResponse = {
-  Amount: number, CreationDate: string, Creator: string, Id: number, Name: string, Team: string
+  Amount: number, CreationDate: string, Creator: string, Id: number, Name: string, Team: string, UserIDCreator: number
 }
 
 
