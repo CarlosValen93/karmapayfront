@@ -1,32 +1,31 @@
 @if (user) {
-<section class="container my-3">
 
-    <h3>Detalle de usuario</h3>
-
-    <div class="card p-3 shadow-sm2">
-
+    <div class="page-background mt-5">
+        <div class="form-box col-12 col-lg-6  ">
+    
+          <button title="volver atrás" (click)="goBack()"> <i class="fas fa-arrow-left"></i></button> 
+    
+    
+    <h1 class="text-center">Detalle de usuario</h1>
         <div class="row">
-
-            <div class="col-xl-4 col-md-6 col-xs-12">
+            <div class="col-6">
                 <figure>
                     <img src="https://cdn-icons-png.flaticon.com/512/2566/2566170.png" alt="">
                 </figure>
             </div>
             
             
-            <div class="col-xl-8 col-md-6 col-xs-12">
+            <div class="pt-4 col-6">
                 <h3 class="pb-3">{{user.Username}}</h3>
-                <p><strong>Mail:</strong> {{user.Mail}}</p>
-                <p><strong>Password:</strong> {{user.Password}}</p>
+                <p>{{user.Mail}}</p>
                 @if(usersService.ItsMe(user.Id)){
-                    <button class="btn btn-danger m-2" [routerLink]="['/updateprofile', user.Id]">Modificar info</button>
-                    <button class="btn btn-danger m-2" (click)="ngOnLogOut()">Log Out</button>
+                    <app-button type="submit" text="Log Out"(click)="ngOnLogOut()">Log Out</app-button>
                 }
-                <button class="btn btn-danger" (click)="goBack()">Volver al grupo</button>
             </div>
         </div>  
-
     </div>
+    </div>
+    
 
-</section>
+
 }

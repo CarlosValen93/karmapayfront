@@ -4,10 +4,11 @@ import { ExpenseResponse, ExpensesService } from '../../services/expenses.servic
 
 import Swal from 'sweetalert2';
 import { DatePipe, Location } from '@angular/common';
+import { ButtonComponent } from "../../components/button/button.component";
 
 @Component({
   selector: 'app-expense',
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, ButtonComponent],
   templateUrl: './expense.component.html',
   styleUrl: './expense.component.css'
 })
