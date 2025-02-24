@@ -4,10 +4,11 @@ import { UsersService } from '../../services/users.service';
 import { IUser } from '../../interface/user.interface';
 import Swal from 'sweetalert2';
 import { Location } from '@angular/common';
+import { ButtonComponent } from "../../components/button/button.component";
 
 @Component({
   selector: 'app-user',
-  imports: [RouterLink],
+  imports: [RouterLink, ButtonComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })

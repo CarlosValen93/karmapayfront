@@ -1,7 +1,8 @@
 <div class="card p-3 shadow-sm2">
   <div class="d-flex align-items-center justify-content-between">
     <div>
-      <p><strong>{{miExpense.Name}}:</strong> €{{miExpense.Amount}}</p>
+      <p><strong>{{miExpense.Name}}</strong></p>
+      <p>{{miExpense.Amount}}€</p>
       <p>{{ miExpense.CreationDate | date:'dd-MM-yyyy' }}</p>
     </div>
     <app-button [routerLink]="['/expense', miExpense.Id]">Ver detalle</app-button>
