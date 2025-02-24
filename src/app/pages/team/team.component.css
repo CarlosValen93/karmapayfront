@@ -8,3 +8,19 @@ img {
     border: solid 1px black;
   }
 
+button {
+  background: none;
+  border: none;
+  color: #FF644C;
+  /* Color de la flecha */
+  font-size: 1.5rem;
+  /* Tamaño de la flecha */
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.3s;
+}
+
+button:hover {
+  color: #E5533C;
+  /* Color más oscuro al pasar el ratón */
+}

@@ -16,7 +16,9 @@
 <div class="invite-container mt-3">
   <p class="invite-label fw-bold">Invitar a alguien al grupo:</p>
   <input type="text" placeholder="Introduce un email" [(ngModel)]="inviteByEmail" class="form-control">
-  <button (click)="inviteUser()" class="btn btn-primary mt-2">
-    Invitar
-  </button>
+  <div class="w-25 mt-3">
+    <app-button (click)="inviteUser()">
+      Invitar
+    </app-button>
+  </div>
 </div>

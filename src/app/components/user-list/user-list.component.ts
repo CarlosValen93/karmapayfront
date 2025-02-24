@@ -7,12 +7,13 @@ import { UsersService } from '../../services/users.service';
 import { FormsModule } from '@angular/forms';
 import { TeamsService } from '../../services/teams.service';
 import Swal from 'sweetalert2';
+import { ButtonComponent } from "../button/button.component";
 
 
 
 @Component({
   selector: 'app-user-list',
-  imports: [UserSearchComponent, UserCardComponent, FormsModule],
+  imports: [UserSearchComponent, UserCardComponent, FormsModule, ButtonComponent],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
@@ -30,7 +31,7 @@ export class UserListComponent {
     } catch (err) {
       console.log(err);
     }
-    
+
   }
 
   async searchByUsername(event: string) {
