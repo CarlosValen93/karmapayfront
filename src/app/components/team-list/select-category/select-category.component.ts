@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SelectCategoryComponent {
   categories: string[] = [];
+  
   teamsService = inject(TeamsService);
   router = inject(Router);
   @Output() selectCategory: EventEmitter<string> = new EventEmitter();

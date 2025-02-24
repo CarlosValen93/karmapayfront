@@ -75,6 +75,7 @@ export class TeamsService {
     return firstValueFrom(
       this.httpClient.get<ITeam[]>(`${this.baseUrl}/category/${category}`)
     )
+    
   }
   getOwner(id: number): Promise<number> {
     return firstValueFrom(

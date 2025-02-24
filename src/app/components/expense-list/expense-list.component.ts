@@ -48,7 +48,7 @@ export class ExpenseListComponent {
     this.gastoTotal = this.arrExpenses
       .map(expense => Number(expense.Amount))
       .reduce((total, value) => total + value, 0);
-      this.gastoTotal = Number(this.gastoTotal.toFixed(2));
+     
 
   }
   
