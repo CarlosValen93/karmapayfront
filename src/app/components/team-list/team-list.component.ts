@@ -14,6 +14,7 @@ export class TeamListComponent {
   arrTeams: ITeam[] = [];
   teamsService = inject(TeamsService);
   @Input() category: string = "";
+  categoryImg: string = "";
 
   async ngOnInit() {
 

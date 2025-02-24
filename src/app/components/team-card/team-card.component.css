@@ -2,8 +2,8 @@
     cursor: pointer;
 }
 
-.bordes {
-    border-radius: 2rem;
-
-
+.imgCategory {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }

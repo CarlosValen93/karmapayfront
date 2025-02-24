@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { TeamsService } from './../../services/teams.service';
+import { Component, inject, Input } from '@angular/core';
 import { ITeam } from '../../interface/team.interface';
 import { RouterLink } from '@angular/router';
 
@@ -11,4 +12,7 @@ import { RouterLink } from '@angular/router';
 export class TeamCardComponent {
 
   @Input() oneTeam!: ITeam;
+
+  teamsService = inject(TeamsService);
+
 }

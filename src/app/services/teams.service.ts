@@ -92,17 +92,37 @@ export class TeamsService {
     return true;
   }
   addUserToTeam(userId: number, teamId: number) {
-   
+
     return firstValueFrom(
       this.httpClient.post(
-        `${this.baseUrl}/create/createUserTeam`, 
-        { 
+        `${this.baseUrl}/create/createUserTeam`,
+        {
           userId,     // Envía el userId directamente
-          teamId 
+          teamId
         },
-      
+
       )
     );
-}
+  }
 
+
+  getCategoryImage(category: category) {
+    switch (category) {
+      case "Ocio":
+        return "/images/category-leisure.png";
+
+      case "Compras":
+        return "/images/category-shopping.png";
+
+      case "Transporte":
+        return "/images/category-transport.png";
+
+      case "Comida":
+        return "/images/category-eat.png";
+
+      default:
+        return "/images/teams.png";
+
+    }
+  }
 }
