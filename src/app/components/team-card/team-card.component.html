@@ -1,12 +1,12 @@
 <div class="mb-3 pointer" [routerLink]="['/team', oneTeam.Id]">
-    <div class="row g-2 justify-content-center">
+    <div class="row ">
         <div class="col-md-2 imgCategory">
             <figure>
                 <img [src]="teamsService.getCategoryImage(oneTeam.Category)" class="img-fluid rounded-start" alt="">
             </figure>
         </div>
         <div class="col-md-8 ms-5 mt-4">
-            <div class="card-body">
+            <div class="card-body aling-items-center">
                 <h5 class="card-title">{{oneTeam.Name}}</h5>
             </div>
         </div>

@@ -2,8 +2,15 @@
     cursor: pointer;
 }
 
+.alignGrid {
+    display: flex;
+    align-items: center;
+
+}
+
 .imgCategory {
     max-width: 100%;
     height: auto;
     object-fit: cover;
+
 }
