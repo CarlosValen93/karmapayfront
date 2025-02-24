@@ -25,12 +25,12 @@
                             formControlName="mail" placeholder="Ingresa tu email">
 
                         @if(checkErrorField('mail', 'required')){
-                        <p class="error mt-2">Email es obligatorio</p>
+                        <p class="error text-primary mt-2">Email es obligatorio</p>
 
                         }
 
                         @if(checkErrorField('mail', 'pattern')){
-                        <p class="error mt-2">Formato no válido</p>
+                        <p class="error text-primary mt-2">Formato no válido</p>
                         }
 
 
@@ -40,7 +40,7 @@
                         <input type="password" class="form-control  rounded-pill text-center px-5 py-2"
                             formControlName="password" placeholder="Ingresa tu contraseña">
                         @if(checkErrorField('password', 'required')){
-                        <p class="error mt-2">Contraseña obligatoria</p>
+                        <p class="error text-primary mt-2">Contraseña obligatoria</p>
                         }
                     </div>
                     <app-button type="submit" value="login" class="btnSize mt-2"> Iniciar Sesión </app-button>

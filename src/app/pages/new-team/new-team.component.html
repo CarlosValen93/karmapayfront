@@ -10,20 +10,20 @@
 
 
                 @if(checkErrorField('name', 'required')){
-                <p class="error">Debes rellenar este campo</p>
+                <p class="error text-primary">Debes rellenar este campo</p>
                 }
             </div>
             <div class="mb-3 px-2">
                 <label for="" class="form-label fw-bold">Descripción</label>
                 <input type="text" class="form-control" formControlName="description">
                 @if(checkErrorField('description', 'required')){
-                <p class="error">Debes poner una descripción del grupo entre 3 y 100 carac</p>
+                <p class="error text-primary">Debes poner una descripción del grupo entre 3 y 100 carac</p>
                 }
                 @if(checkErrorField('description', 'minlength')){
-                <p class="error">La descripción debe tener al menos 3 caracteres</p>
+                <p class="error text-primary">La descripción debe tener al menos 3 caracteres</p>
                 }
                 @if(checkErrorField('description', 'maxlength')){
-                <p class="error">La descripción no puede tener mas de 100 caracteres</p>
+                <p class="error text-primary">La descripción no puede tener mas de 100 caracteres</p>
                 }
 
             </div>
@@ -36,7 +36,7 @@
                     <option value="Compras">Compras</option>
                 </select>
                 @if(checkErrorField('category', 'required')){
-                <p class="error">Debes elegir una categoría</p>
+                <p class="error text-primary">Debes elegir una categoría</p>
                 }
 
             </div>
