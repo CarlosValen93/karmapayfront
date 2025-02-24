@@ -103,6 +103,7 @@ export class ExpensesService {
       this.httpClient.get<IExpense[]>(`${this.baseUrl}/team/${id}`)
     );
   }
+
   isCreator(id: number) {
     const token = localStorage.getItem(environment.tokenName)!;
     const payload = jwtDecode<CustomPayload>(token);

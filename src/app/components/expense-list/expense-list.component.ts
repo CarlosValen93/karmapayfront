@@ -16,15 +16,19 @@ export class ExpenseListComponent {
   arrExpenses: IExpense[] = [];
   expensesServices = inject(ExpensesService);
   @Input() idTeam: number = 0;
+  gastoTotal: number = 0;
 
 
   async ngOnInit() {
+    
     try {
       let expenses: IExpense[] = await this.expensesServices.getbyIdGroup(this.idTeam)
       this.arrExpenses = expenses;
+      console.log('Contenido de arrExpenses:', this.arrExpenses);
     } catch (err) {
       console.log(err);
     }
+    this.calcularGastoTotal();
   }
 
   async searchByName(event: string) {
@@ -40,5 +44,15 @@ export class ExpenseListComponent {
       console.log(err);
     }
   }
+  calcularGastoTotal() {
+    this.gastoTotal = this.arrExpenses
+      .map(expense => Number(expense.Amount))
+      .reduce((total, value) => total + value, 0);
+      this.gastoTotal = Number(this.gastoTotal.toFixed(2));
+
+  }
+  
+  
+  
 
 }
