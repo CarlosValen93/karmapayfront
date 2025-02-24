@@ -1,0 +1,66 @@
+.page-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  .form-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      0 8px 16px rgba(0, 0, 0, 0.15),
+      0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1.text-center {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+  
+  h1.text-center::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 4px;
+    background-color: #FF644C;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: #FF644C;
+    /* Color de la flecha */
+    font-size: 1.5rem;
+    /* Tamaño de la flecha */
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s;
+  }
+  
+  button:hover {
+    color: #E5533C;
+    /* Color más oscuro al pasar el ratón */
+  }
+  
+  @media (width >=992px) {
+    .page-background {
+      padding-bottom: 10rem;
+      background-image: url("/images/plant.png");
+      background-repeat: no-repeat;
+      background-size: auto;
+      background-position: 10rem bottom;
+    }
+  }

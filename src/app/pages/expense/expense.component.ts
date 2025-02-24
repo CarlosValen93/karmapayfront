@@ -4,10 +4,11 @@ import { ExpenseResponse, ExpensesService } from '../../services/expenses.servic
 
 import Swal from 'sweetalert2';
 import { DatePipe, Location } from '@angular/common';
+import { ButtonComponent } from "../../components/button/button.component";
 
 @Component({
   selector: 'app-expense',
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, ButtonComponent],
   templateUrl: './expense.component.html',
   styleUrl: './expense.component.css'
 })
@@ -22,6 +23,7 @@ export class ExpenseComponent {
     try {
       let id: number = Number(this.idExpense);
       let response = await this.expensesService.getById(id);
+      console.log(response)
       if (response) {
         this.expense = response;
       } else {
@@ -52,6 +54,7 @@ export class ExpenseComponent {
     try {
       let id: number = Number(this.idExpense);
       let response = await this.expensesService.deleteExpense(id);
+
       Swal.fire({
         icon: "success",
         title: "Borrado!",

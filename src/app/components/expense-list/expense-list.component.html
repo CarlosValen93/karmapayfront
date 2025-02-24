@@ -4,7 +4,7 @@
 
 <div class="row">
   @for( expense of arrExpenses; track expense.Id) {
-  <article class="col-xl-12 col-lg-6 col-md-12 col-xs-12 g-3">
+  <article class="col-xl-6 col-lg-6 col-md-6 col-xs-6 g-3">
     <app-expense-card [miExpense]="expense"></app-expense-card>
   </article>
   }@empty {
