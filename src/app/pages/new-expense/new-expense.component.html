@@ -15,7 +15,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label fw-bold">Cantidad</label>
-                    <input type="text" class="form-control" formControlName="amount">
+                    <input type="number" class="form-control" formControlName="amount">
                     @if(checkErrorField('amount', 'required')){
                     <p class="error">El campo es obligatorio</p>
                     }
@@ -43,7 +43,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Asignación </label>
-                            <input type="text" class="form-control" formControlName="Assignation">
+                            <input type="number" class="form-control" formControlName="Assignation">
                         </div>
                         <input type="hidden" formControlName="UserId">
                     </div>

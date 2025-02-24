@@ -30,6 +30,7 @@ export class UserListComponent {
     } catch (err) {
       console.log(err);
     }
+    
   }
 
   async searchByUsername(event: string) {

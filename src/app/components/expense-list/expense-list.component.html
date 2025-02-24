@@ -6,10 +6,14 @@
   @for( expense of arrExpenses; track expense.Id) {
   <article class="col-xl-12 col-lg-6 col-md-12 col-xs-12 g-3">
     <app-expense-card [miExpense]="expense"></app-expense-card>
+   
   </article>
   }@empty {
   <h4>No hay gastos</h4>
   }
+</div>
+<div class="mt-3 text-end">
+  <h4>Gasto Total: {{ gastoTotal}}€</h4>
 </div>
 <div class="mt-3">
   <app-button [routerLink]="['/newexpense',idTeam]">Nuevo Gasto</app-button>
