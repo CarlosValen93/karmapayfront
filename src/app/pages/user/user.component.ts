@@ -8,14 +8,14 @@ import { ButtonComponent } from "../../components/button/button.component";
 
 @Component({
   selector: 'app-user',
-  imports: [RouterLink, ButtonComponent],
+  imports: [ButtonComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input() idUser: string="";
-  usersService=inject(UsersService);
-  router =inject(Router);
+  @Input() idUser: string = "";
+  usersService = inject(UsersService);
+  router = inject(Router);
   user!: IUser;
   location = inject(Location);
 
@@ -35,11 +35,11 @@ export class UserComponent {
       }
     } catch (error) {
       //  Swal.fire({
-       //   icon: "error",
-       //   title: "Oops...",
-       //   text: "Error al obtener el usuario",
-       // });
-       // this.router.navigate(['/home']);
+      //   icon: "error",
+      //   title: "Oops...",
+      //   text: "Error al obtener el usuario",
+      // });
+      // this.router.navigate(['/home']);
     }
   }
 
@@ -47,10 +47,11 @@ export class UserComponent {
     this.location.back();
   }
 
-  ngChangeInfo(){
-  }
 
-  ngOnLogOut(){
+
+  async LogOut() {
+    await this.usersService.logout()
+    this.router.navigateByUrl('/home')
   }
 
 
