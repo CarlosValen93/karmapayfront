@@ -52,20 +52,41 @@ export class ExpenseComponent {
 
   async ngDeleteExpense() {
     try {
-      let id: number = Number(this.idExpense);
-      let response = await this.expensesService.deleteExpense(id);
 
       Swal.fire({
-        icon: "success",
-        title: "Borrado!",
-        text: "El gasto ha sido borrado",
+        title: "¿Estás seguro?",
+        text: "¡No podrás recuperar el gasto una vez borrado!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "tomato",
+        confirmButtonText: "Sí, eliminar!",
+        cancelButtonText: "Cancelar"
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+
+          let id: number = Number(this.idExpense);
+          await this.expensesService.deleteExpense(id);
+
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "¡Gasto borrado!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+
+          this.location.back();
+
+        }
       });
-      this.location.back();
+      
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Error al borrar el gasto",
+        text: "¡Error al borrar el gasto!",
+        confirmButtonColor: "tomato"
       });
     }
   }

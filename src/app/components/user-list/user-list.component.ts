@@ -52,7 +52,8 @@ export class UserListComponent {
         title: 'Error',
         text: 'Por favor, introduce un email.',
         icon: 'warning',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: "tomato",
       });
       return;
     }
@@ -65,7 +66,8 @@ export class UserListComponent {
           title: 'Error',
           text: 'El usuario no existe.',
           icon: 'error',
-          confirmButtonText: 'Aceptar'
+          confirmButtonText: 'Aceptar',
+          confirmButtonColor: "tomato",
         });
         return;
       }
@@ -74,11 +76,13 @@ export class UserListComponent {
 
 
       Swal.fire({
-        title: '¡Usuario Añadido!',
-        text: 'El usuario ha sido añadido al equipo.',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
+        position: "top-end",
+        icon: "success",
+        title: "¡Usuario añadido correctamente!",
+        showConfirmButton: false,
+        timer: 1500
       });
+
       this.arrUsers = await this.usersServices.getByIdGroup(this.idTeam);
 
       this.inviteByEmail = '';
@@ -87,7 +91,8 @@ export class UserListComponent {
         title: 'Error al invitar',
         text: 'Hubo un problema al invitar al usuario. Inténtalo de nuevo.',
         icon: 'error',
-        confirmButtonText: 'Intentar de nuevo'
+        confirmButtonText: 'Intentar de nuevo',
+        confirmButtonColor: "tomato",
       });
       console.error('Error al invitar usuario:', error);
     }

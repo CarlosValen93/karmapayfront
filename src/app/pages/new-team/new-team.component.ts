@@ -38,7 +38,8 @@ async onSubmit() {
           title: 'Error',
           text: 'Por favor, completa todos los campos correctamente.',
           icon: 'error',
-          confirmButtonText: 'Revisar'
+          confirmButtonText: 'Revisar',
+          confirmButtonColor: "tomato"
       });
       return;
   }
@@ -55,10 +56,11 @@ async onSubmit() {
       await this.teamsService.add(teamBody);
 
       Swal.fire({
-          title: '¡Grupo creado!',
-          text: `El grupo ha sido registrado correctamente.`,
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
+        position: "top-end",
+        icon: "success",
+        title: "¡Grupo creado correctamente!",
+        showConfirmButton: false,
+        timer: 1500
       });
 
       this.registerForm.reset();
@@ -70,7 +72,8 @@ async onSubmit() {
         title: 'Error',
         text: error?.error?.message || 'No se pudo agregar el grupo. Intenta de nuevo.',
         icon: 'error',
-        confirmButtonText: 'Cerrar'
+        confirmButtonText: 'Cerrar',
+        confirmButtonColor: "tomato"
     });
 }
 }
