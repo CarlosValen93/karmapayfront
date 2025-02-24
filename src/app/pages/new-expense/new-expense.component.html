@@ -14,7 +14,7 @@
                     }
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label fw-bold">Cantidad</label>
+                    <label for="" class="form-label fw-bold">Cantidad (€)</label>
                     <input type="number" class="form-control" formControlName="amount">
                     @if(checkErrorField('amount', 'required')){
                     <p class="error">El campo es obligatorio</p>
@@ -31,18 +31,18 @@
                     <p class="error">Solo puedes añadir números</p>
                     }
                 </div>
+                <label for="" class="form-label fw-bold">Asignación (€)
 
+                </label>
                 @if(arrUsersTeam){
 
-                <div class="d-flex justify-content-around" formArrayName="assignations">
+                <div class=" justify-content-around" formArrayName="assignations">
                     @for(assignationForm of assignations.controls; track $index){
                     <div [formGroupName]="$index">
-                        <div class="mb-3">
-                            <label for="" class="form-label"></label>
-                            <input type="text" class="form-control" formControlName="Username">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Asignación </label>
+                        <div class="mb-3 d-flex">
+
+                            <input type="text" class="form-control-plaintext " [disabled]="true" [readonly]="true"
+                                formControlName="Username">
                             <input type="number" class="form-control" formControlName="Assignation">
                         </div>
                         <input type="hidden" formControlName="UserId">
@@ -50,7 +50,8 @@
                     }
                 </div>
                 }
-                <div class="text-center mt-2">
+
+                <div class="text-center mt-5">
                     <app-button type="submit" value="Añadir gasto"> Añadir gasto</app-button>
                 </div>
 
