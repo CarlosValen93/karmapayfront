@@ -2,15 +2,17 @@
     cursor: pointer;
 }
 
-.alignGrid {
+.alignFlex {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
+    gap: 2rem;
 
 }
 
 .imgCategory {
-    max-width: 100%;
+    max-width: 100px;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
 
 }
