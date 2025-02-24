@@ -4,19 +4,23 @@
     <div class="card p-2">
         <button class="text-start ms-3" title="volver atrás" [routerLink]="['/home']"> <i
                 class="fas fa-arrow-left"></i></button>
-        <div class="row g-3">
-            <div class="col-xl-2 col-md-4 col-xs-12">
-                <figure>
-
-                    <img [src]="teamsService.getCategoryImage(team.Category)" alt="">
-                </figure>
-            </div>
+        <div class="row justify-content-between mx-2 g-3">
             <div class="col-xl-4 col-md-6 col-xs-12">
-                <div class="p-3">
-                    <h3>{{team.Name}}</h3>
-                    <h4 class="fw-light">{{team.Category}}</h4>
-                    <p>{{team.Description}}</p>
+                <div class="alignFlex">
+                    <div class="ms-5 ">
+                        <figure>
+                            <img [src]="teamsService.getCategoryImage(team.Category)" alt="categria">
+                        </figure>
+                    </div>
+                    <div class="">
+                        <div class="p-3">
+                            <h3>{{team.Name}}</h3>
+                            <h4 class="fw-light">{{team.Category}}</h4>
+                            <p>{{team.Description}}</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
             <div class="col-xl-2 col-md-3 col-xs-12 p-3 pt-3">
                 <div class="d-flex flex-column">

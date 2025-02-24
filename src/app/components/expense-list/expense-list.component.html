@@ -9,11 +9,11 @@
 
   </article>
   }@empty {
-  <h4>No hay gastos</h4>
+  <h4 class="mt-3">No hay gastos</h4>
   }
 </div>
 <div class="mt-3 text-start">
-  <h4>Gasto Total: {{ gastoTotal }}€</h4>
+  <h5>Gasto Total: {{ gastoTotal }}€</h5>
 </div>
 <div class="mt-3 w-25">
   <app-button [routerLink]="['/newexpense',idTeam]">Nuevo Gasto</app-button>

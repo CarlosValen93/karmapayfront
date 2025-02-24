@@ -1,12 +1,12 @@
 img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 100%;
-    margin-left: 1rem;
-    margin-top: 1rem;
-    border: solid 1px black;
-  }
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border: solid 1px black;
+}
 
 button {
   background: none;
@@ -23,4 +23,13 @@ button {
 button:hover {
   color: #E5533C;
   /* Color más oscuro al pasar el ratón */
+}
+
+.alignFlex {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+
+
 }
