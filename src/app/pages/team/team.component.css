@@ -8,6 +8,9 @@ img {
   border: solid 1px black;
 }
 
+p{
+  width: 300px;
+}
 button {
   background: none;
   border: none;
@@ -24,6 +27,7 @@ button:hover {
   color: #E5533C;
   /* Color más oscuro al pasar el ratón */
 }
+
 
 .alignFlex {
   display: flex;
