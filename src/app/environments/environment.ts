@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrl: '',
+    apiUrl: 'https://karmapay-api.onrender.com',
     tokenName: 'Token'
 };
