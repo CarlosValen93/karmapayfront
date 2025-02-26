@@ -34,12 +34,7 @@ export class UserComponent {
         this.router.navigate(['/home']);
       }
     } catch (error) {
-      //  Swal.fire({
-      //   icon: "error",
-      //   title: "Oops...",
-      //   text: "Error al obtener el usuario",
-      // });
-      // this.router.navigate(['/home']);
+      console.log(error)
     }
   }
 

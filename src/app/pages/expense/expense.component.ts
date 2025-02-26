@@ -41,12 +41,7 @@ export class ExpenseComponent {
       if (!assigResult) { this.assig = 0 }
 
     } catch (error) {
-      //  Swal.fire({
-      //   icon: "error",
-      //   title: "Oops...",
-      //   text: "Error al obtener el gasto",
-      // });
-      // this.router.navigate(['/home']);
+      console.log(error)
     }
   }
 
@@ -80,7 +75,7 @@ export class ExpenseComponent {
 
         }
       });
-      
+
     } catch (error) {
       Swal.fire({
         icon: "error",

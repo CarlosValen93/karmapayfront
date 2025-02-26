@@ -39,12 +39,7 @@ export class TeamComponent {
         this.router.navigate(['/home']);
       }
     } catch (error) {
-      //  Swal.fire({
-      //   icon: "error",
-      //   title: "Oops...",
-      //   text: "Error al obtener el grupo",
-      // });
-      // this.router.navigate(['/home']);
+      console.log(error)
     }
     this.isOwner = await this.teamsService.isOwner(this.idTeam);
   }
@@ -53,7 +48,7 @@ export class TeamComponent {
 
   async ngDeleteTeam() {
     try {
-      
+
       Swal.fire({
         title: "¿Estás seguro?",
         text: "¡No podrás recuperar el grupo una vez borrado!",

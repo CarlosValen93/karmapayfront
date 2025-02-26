@@ -7,9 +7,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './button.component.css'
 })
 export class ButtonComponent {
-  @Input() btnClass: string = ''; // Permite añadir clases adicionales
-  @Input() type: 'button' | 'submit' | 'reset' = 'button'; // Tipo de botón
-  @Output() btnClick = new EventEmitter<Event>(); // Emite eventos al hacer clic
+  @Input() btnClass: string = '';
+  @Input() type: 'button' | 'submit' | 'reset' = 'button';
+  @Output() btnClick = new EventEmitter<Event>();
 
   onClick(event: Event) {
     this.btnClick.emit(event);
