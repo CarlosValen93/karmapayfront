@@ -32,7 +32,13 @@ export class TeamListComponent {
 
   async selectCategory(event: any) {
     try {
-      const result = await this.teamsService.getByCategory(event);
+
+      let result;
+      if (event === "") {
+        result = await this.teamsService.getAll();
+      } else {
+        result = await this.teamsService.getByCategory(event);
+      }
       this.arrTeams = result;
 
     } catch (err) {

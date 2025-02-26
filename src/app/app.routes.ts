@@ -24,5 +24,5 @@ export const routes: Routes = [
     { path: 'newteam', component: NewTeamComponent, canActivate: [authGuard] },
     { path: 'updateexpenses/:idExpense', component: UpdateExpenseComponent, canActivate: [authGuard] },
     { path: 'updateprofile/:idUser', component: UpdateProfileComponent, canActivate: [authGuard] },
-    { path: '**', component: NotfoundComponent, canActivate: [authGuard] }
+    { path: '**', component: NotfoundComponent }
 ];
